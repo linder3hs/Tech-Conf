@@ -1,18 +1,25 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Conferencias de Software.">
-	<main>
-		<div>
-			<h1>Conferencias de Software</h1>
-			<p>
-				En esta página encontrarás las conferencias de software gratis y con 
-				grandes ponentes que te ayudaran a mejorar en tu camino como software developer.
-			</p>
-		</div>
-		<div class="mt-5">
-			<a href="/events" class="bg-teal-400 p-3 text-center text-white rounded-md">Ver eventos</a>
-		</div>
-	</main>
+  <main class="h-screen flex justify-center items-center -mt-20">
+    <div>
+      <h1>Conferencias de Software</h1>
+      <p class="md:w-2/6 sm:w-full mt-5">
+        Aquí podrás encontrar información sobre los eventos más relevantes en el
+        mundo del software y la tecnología. Las conferencias de software son una
+        oportunidad única para conectarse con expertos, aprender sobre las
+        últimas tendencias y tecnologías y networking con otros profesionales
+        del sector.
+      </p>
+      <div class="mt-10">
+        <a
+          href="/events"
+          class="bg-teal-400 p-3 text-center text-white rounded-md"
+          >Ver eventos</a
+        >
+      </div>
+    </div>
+  </main>
 </Layout>
