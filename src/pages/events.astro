@@ -1,0 +1,19 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+---
+
+<Layout title="Eventos">
+  <main>
+    <h1>Eventos</h1>
+    <p>Proximos eventos</p>
+    <div class="mt-5">
+      <Card
+        title="Tecspup - charlas de software"
+        body="Ven y enterate de las ultimas novedades sobre el desarrollo de software"
+        category="Presencial"
+        href="/conferences"
+      />
+    </div>
+  </main>
+</Layout>

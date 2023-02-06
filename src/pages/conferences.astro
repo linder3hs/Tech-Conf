@@ -1,0 +1,30 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+---
+
+<Layout title="Lista de conferencias">
+  <main>
+    <h1>Lista de charlas</h1>
+    <div class="mt-5">
+      <Card
+        title="JS aplicado al mundo"
+        category="virtual"
+        body="descripcion de la charla"
+        href="/"
+      />
+      <Card
+        title="Larga vida a Android"
+        category="virtual"
+        body="descripcion de la charla"
+        href="/"
+      />
+      <Card
+        title="El backend de la web"
+        category="virtual"
+        body="descripcion de la charla"
+        href="/"
+      />
+    </div>
+  </main>
+</Layout>
