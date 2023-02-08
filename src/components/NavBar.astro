@@ -14,13 +14,18 @@ const items: Item[] = [
     current: true,
   },
   {
-    name: "Por qué?",
+    name: "Eventos",
+    href: "/events",
+    current: false,
+  },
+  {
+    name: "Speakers",
     href: "#",
     current: false,
   },
   {
     name: "Sponsors",
-    href: "#",
+    href: "#sponsors",
     current: false,
   },
   {
@@ -28,17 +33,10 @@ const items: Item[] = [
     href: "#",
     current: false,
   },
-  {
-    name: "Voluntario",
-    href: "#",
-    current: false,
-  },
 ];
-
-const title = "Tailwind CSS";
 ---
 
-<nav class="bg-gray-200">
+<nav class="bg-gray-800">
   <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
     <div class="relative flex h-16 items-center justify-between">
       <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -88,8 +86,8 @@ const title = "Tailwind CSS";
             {
               items.map((item: Item) => (
                 <a
-                  href="/"
-                  class="text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
+                  href={item.href}
+                  class="text-white px-3 py-2 rounded-md text-xl font-medium"
                   aria-current="page"
                 >
                   {item.name}
@@ -125,8 +123,8 @@ const title = "Tailwind CSS";
       {
         items.map((item: Item) => (
           <a
-            href="/"
-            class="text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
+            href={item.href}
+            class="text-white px-3 py-2 rounded-md text-xl font-medium"
             aria-current="page"
           >
             {item.name}

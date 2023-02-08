@@ -1,5 +1,6 @@
 ---
 import NavBar from "../components/NavBar.astro";
+import "@fontsource/ibm-plex-mono"; // Defaults to weight 400.
 
 export interface Props {
   title: string;
@@ -33,7 +34,7 @@ const { title } = Astro.props;
     );
   }
   html {
-    font-family: system-ui, sans-serif;
+    font-family: "IBM Plex Mono", sans-serif;
     background-color: #f6f6f6;
   }
   code {

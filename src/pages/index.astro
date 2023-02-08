@@ -1,25 +1,20 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Home from "../components/Home.astro";
+import About from "../components/About.astro";
+import Sponsors from "../components/Sponsors.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <Layout title="Conferencias de Software.">
-  <main class="h-screen flex justify-center items-center -mt-20">
-    <div>
-      <h1>Conferencias de Software</h1>
-      <p class="md:w-2/6 sm:w-full mt-5">
-        Aquí podrás encontrar información sobre los eventos más relevantes en el
-        mundo del software y la tecnología. Las conferencias de software son una
-        oportunidad única para conectarse con expertos, aprender sobre las
-        últimas tendencias y tecnologías y networking con otros profesionales
-        del sector.
-      </p>
-      <div class="mt-10">
-        <a
-          href="/events"
-          class="bg-teal-400 p-3 text-center text-white rounded-md"
-          >Ver eventos</a
-        >
-      </div>
-    </div>
-  </main>
+  <div class="bg-rose-500 mt-20">
+    <Home />
+  </div>
+  <div id="about" class="m-5">
+    <About />
+  </div>
+  <div id="sponsors" class="bg-gray-800">
+    <Sponsors />
+  </div>
+  <Footer />
 </Layout>
