@@ -1,0 +1,25 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Speaker from "../components/Speaker.astro";
+
+const speakers = [1, 2, 3, 4, 5, 6, 7];
+---
+
+<Layout title="Speakers - Peru">
+  <main>
+    <h1 class="font-bold text-7xl text-gray-800">Speakers</h1>
+    <div class="">
+      <div class="flex flex-wrap gap-28 justify-around mt-20">
+        {
+          speakers.map((speaker) => (
+            <Speaker
+              image="https://www.linderhassinger.info/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Fu%2F20673011%3Fv%3D4&w=640&q=75"
+              name="Linder Hassinger"
+              github="linder3hs"
+            />
+          ))
+        }
+      </div>
+    </div>
+  </main>
+</Layout>

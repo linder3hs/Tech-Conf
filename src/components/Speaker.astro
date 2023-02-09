@@ -1,0 +1,15 @@
+---
+export interface Props {
+  image: string;
+  name: string;
+  github: string;
+}
+
+const { image, name, github } = Astro.props;
+---
+
+<div class="text-center hover:scale-105 hover:cursor-pointer">
+  <img width="170" class="text-center rounded-full" src={image} alt={name} />
+  <h2 class="text-xl mt-3 font-bold">{name}</h2>
+  <h5 class="text-lg font-semibold text-red-400">@{github}</h5>
+</div>
