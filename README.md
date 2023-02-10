@@ -7,6 +7,17 @@ Inicialmente, este proyecto fue creado para la conferencia [ConfPe](https://conf
 Planeamos empezar a hacer charlas en Tecsup, pero buscamos expandirnos
 y poder compartir esto en todo el país.
 
+## Colabora
+
+Si quieres colaborar con este proyecto, puedes hacerlo de las siguientes maneras:
+
+- [ ] Crea un issue si quieres hacer alguna mejora
+- [ ] Procedere a crear una tarea para que puedas hacer un PR
+- [ ] Crear un PR con la mejora que quieras hacer
+- [ ] Asigname con reviewer @linder3hs
+
+*Recuerda usar el PR Template que tiene el repositorio*
+
 ## 🚀 Project Structure
 
 Inside of your Astro project, you'll see the following folders and files:

@@ -85,12 +85,13 @@ const items: Item[] = [
           <div class="flex space-x-4">
             {
               items.map((item: Item) => (
-                <button
+                <a
+                  href={item.href}
                   class="text-white px-3 py-2 rounded-md text-xl font-medium"
                   aria-current="page"
                 >
                   {item.name}
-                </button>
+                </a>
               ))
             }
           </div>
