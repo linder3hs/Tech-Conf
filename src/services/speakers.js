@@ -1,4 +1,5 @@
 import supabase from "./config";
+import * as Sentry from "@sentry/browser";
 
 export async function getSpeakers() {
   const { data, error } = await supabase
@@ -7,7 +8,7 @@ export async function getSpeakers() {
     .order("id", { ascending: true });
 
   if (error) {
-    // TODO: Handle error
+    Sentry.captureException(error);
     return [];
   }
 

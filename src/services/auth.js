@@ -1,4 +1,5 @@
 import supabase from "./config";
+import * as Sentry from "@sentry/browser";
 
 export async function signInWithGitHub() {
   const { data, error } = await supabase.auth.signInWithOAuth({
@@ -6,8 +7,7 @@ export async function signInWithGitHub() {
   });
 
   if (error) {
-    console.log(error);
-    // TODO: Handle error
+    Sentry.captureException(error);
     return false;
   }
 
@@ -18,8 +18,7 @@ export async function signout() {
   const { error } = await supabase.auth.signOut();
 
   if (error) {
-    console.log(error);
-    // TODO: Handle error
+    Sentry.captureException(error);
     return false;
   }
 }
@@ -28,8 +27,7 @@ export async function getUser() {
   const { data, error } = await supabase.auth.getUser();
 
   if (error) {
-    console.log(error);
-    // TODO: Handle error
+    Sentry.captureException(error);
     return false;
   }
 
