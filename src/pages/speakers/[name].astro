@@ -1,0 +1,30 @@
+---
+export const speakers = [
+  { name: "Linder", path: "linder" },
+  { name: "Chris", path: "chris" },
+  { name: "Sean", path: "sean" },
+  { name: "Evan", path: "evan" },
+  { name: "Rachel", path: "rachel" },
+  { name: "Nat", path: "nat" },
+  { name: "Jenn", path: "jenn" },
+  { name: "Mikenzi", path: "mikenzi" },
+  { name: "Kim", path: "kim" },
+  { name: "Tom", path: "tom" },
+  { name: "Tracy", path: "tracy" },
+  { name: "Jess", path: "jess" },
+  { name: "Matt", path: "matt" },
+];
+
+export function getStaticPaths() {
+  return speakers.map((speaker) => ({
+    params: { name: speaker.path },
+    props: { ...speaker },
+  }));
+}
+
+const { name } = Astro.params;
+---
+
+<div>
+  <h1>My name is {name}</h1>
+</div>

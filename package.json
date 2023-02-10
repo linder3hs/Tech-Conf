@@ -14,6 +14,8 @@
     "@astrojs/react": "2.0.2",
     "@astrojs/tailwind": "3.0.1",
     "@fontsource/ibm-plex-mono": "4.5.13",
+    "@supabase/auth-ui-react": "0.2.7",
+    "@supabase/supabase-js": "2.7.1",
     "@types/react": "18.0.27",
     "@types/react-dom": "18.0.10",
     "astro": "2.0.6",

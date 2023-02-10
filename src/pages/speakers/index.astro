@@ -1,0 +1,26 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Speaker from "../../components/Speaker.astro";
+import { getSpeakers } from "../../services/speakers";
+
+const speakers = await getSpeakers();
+---
+
+<Layout title="Speakers - Peru">
+  <main class="mt-10 md:w-3/5">
+    <h1 class="font-bold text-5xl text-gray-800">Speakers</h1>
+    <div class="">
+      <div class="flex flex-wrap gap-28 justify-around mt-20">
+        {
+          speakers.map((speaker) => (
+            <Speaker
+              image={speaker.image}
+              name={speaker.name}
+              github={speaker.github ?? "no-user"}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </main>
+</Layout>
