@@ -1,28 +1,23 @@
-# Astro Starter Kit: Basics
+# Conferencias de Software - Peru 🇵🇪
 
-```
-npm create astro@latest -- --template basics
-```
+Buscamos compartir conocimiento y experiencias de la comunidad de software en Perú.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/s/github/withastro/astro/tree/latest/examples/basics)
+Inicialmente, este proyecto fue creado para la conferencia [ConfPe](https://conferences-ten.vercel.app/), pero ahora es un proyecto de código abierto para que cualquier conferencia de software en Perú pueda usarlo.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![basics](https://user-images.githubusercontent.com/4677417/186188965-73453154-fdec-4d6b-9c34-cb35c248ae5b.png)
-
+Planeamos empezar a hacer charlas en Tecsup, pero buscamos expandirnos
+y poder compartir esto en todo el país.
 
 ## 🚀 Project Structure
 
 Inside of your Astro project, you'll see the following folders and files:
 
-```
+```bash
 /
 ├── public/
 │   └── favicon.svg
 ├── src/
 │   ├── components/
-│   │   └── Card.astro
+│   │   └── /**.astro
 │   ├── layouts/
 │   │   └── Layout.astro
 │   └── pages/
@@ -30,11 +25,7 @@ Inside of your Astro project, you'll see the following folders and files:
 └── package.json
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
+Este proyecto esta construido con [Astro](https://astro.build/), un generador de sitios estáticos moderno y rápido.
 
 ## 🧞 Commands
 
