@@ -1,9 +1,9 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import Speaker from "../../components/Speaker.astro";
-import { getSpeakers } from "../../services/speakers";
+import Speaker from "../../components/Speaker/index.astro";
+import { getDataFromTable } from "../../services/config";
 
-const speakers = await getSpeakers();
+const speakers = await getDataFromTable("speakers");
 ---
 
 <Layout title="Speakers - Peru">

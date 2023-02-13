@@ -1,24 +1,29 @@
 import { useEffect, useState } from "react";
-import { signInWithGitHub, getUser } from "../services/auth";
-import github from "../assets/github-mark.svg";
+import { signInWithGitHub, getUser } from "../../services/auth";
+import github from "../../assets/github-mark.svg";
 
 export default function GithubAuth() {
   const fetchLogin = async () => await signInWithGitHub();
 
   const [user, setUser] = useState(null);
 
+  const fetchUser = async () => {
+    const { user } = await getUser();
+    setUser(user);
+  };
+
   useEffect(() => {
-    const fetchUser = async () => {
-      const { user } = await getUser();
-      setUser(user);
-    };
     fetchUser();
   }, []);
 
   return (
     <div>
       {user ? (
-        <img src={user.user_metadata.avatar_url} width={40} className="rounded-full cursor-pointer" />
+        <img
+          src={user.user_metadata.avatar_url}
+          width={40}
+          className="rounded-full cursor-pointer"
+        />
       ) : (
         <button
           onClick={fetchLogin}

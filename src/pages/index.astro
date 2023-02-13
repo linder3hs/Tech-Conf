@@ -1,9 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Home from "../components/Home.astro";
-import About from "../components/About.astro";
-import Sponsors from "../components/Sponsors.astro";
-import Footer from "../components/Footer.astro";
+import Home from "../components/Home/Home.astro";
+import About from "../components/About/index.astro";
+import Sponsors from "../components/Sponsors/index.astro";
+import Footer from "../components/Footer/index.astro";
 ---
 
 <Layout title="Conferencias de Software.">
@@ -13,8 +13,10 @@ import Footer from "../components/Footer.astro";
   <div id="about" class="m-5">
     <About />
   </div>
-  <div id="sponsors" class="bg-gray-800">
+  <div id="sponsors" class="bg-gray-100">
     <Sponsors />
   </div>
-  <Footer />
+  <div class="bg-gray-800 p-5">
+    <Footer />
+  </div>
 </Layout>

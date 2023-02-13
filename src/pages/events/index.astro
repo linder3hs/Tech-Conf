@@ -1,19 +1,25 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import Card from "../../components/Card.astro";
+import Card from "../../components/Card/index.astro";
+import { getDataFromTable } from "../../services/config";
+
+const events = await getDataFromTable("events");
 ---
 
 <Layout title="Eventos">
-  <main>
-    <h1>Eventos</h1>
-    <p>Proximos eventos</p>
-    <div class="mt-5">
-      <Card
-        title="Tecspup - charlas de software"
-        body="Ven y enterate de las ultimas novedades sobre el desarrollo de software"
-        category="Presencial"
-        href="/conferences"
-      />
+  <main class="mt-10 md:mx-16">
+    <h2 class="text-4xl">⭐️ Eventos</h2>
+    <div class="mt-5 flex flex-wrap gap-5">
+      {
+        events.map((event) => (
+          <Card
+            title={event.title}
+            body={event.description}
+            date={event.date}
+            href={`/events/${event.id}`}
+          />
+        ))
+      }
     </div>
   </main>
 </Layout>
