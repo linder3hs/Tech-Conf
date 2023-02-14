@@ -1,5 +1,6 @@
 ---
 import GithubAuth from "../GithubAuth/index";
+import logo from "../../assets/logo.png";
 
 interface Item {
   name: string;
@@ -37,7 +38,7 @@ const items: Item[] = [
 ---
 
 <nav class="bg-gray-800">
-  <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+  <div class="mx-auto max-w-7xl py-4 px-2 sm:px-6 lg:px-8">
     <div class="relative flex h-16 items-center justify-between">
       <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
         <button
@@ -81,6 +82,9 @@ const items: Item[] = [
       <div
         class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start"
       >
+        <div>
+          <img src={logo} width="100" height="100" alt="logo" />
+        </div>
         <div class="hidden sm:ml-6 sm:block">
           <div class="flex space-x-4">
             {
@@ -100,7 +104,6 @@ const items: Item[] = [
       <div
         class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"
       >
-        <!-- Profile dropdown -->
         <div class="relative ml-3">
           <GithubAuth client:load />
         </div>
