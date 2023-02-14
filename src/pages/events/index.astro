@@ -1,6 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import Card from "../../components/Card/index.astro";
+import Card from "../../components/Card/index";
 import { getDataFromTable } from "../../services/config";
 
 const events = await getDataFromTable("events");
@@ -9,13 +9,16 @@ const events = await getDataFromTable("events");
 <Layout title="Eventos">
   <main class="mt-10 md:mx-16">
     <h2 class="text-4xl">⭐️ Eventos</h2>
-    <div class="mt-5 flex flex-wrap gap-5">
+    <div class="mt-10 grid md:grid-cols-4 sm:grid-cols-1 gap-6">
       {
         events.map((event) => (
           <Card
+            client:load
+            id={event.id}
             title={event.title}
             body={event.description}
             date={event.date}
+            capacity={event.capacity}
             href={`/events/${event.id}`}
           />
         ))
