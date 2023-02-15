@@ -9,7 +9,9 @@ const speakers = await getDataFromTable("speakers");
 <Layout title="Speakers - Peru">
   <main class="mt-10 md:w-3/5">
     <h1 class="font-bold text-5xl text-gray-800">Speakers</h1>
-    <div class="mt-20 grid sm:grid-colos-1 md:grid-cols-2 lg:grid-cols-3 gap-28 items-center">
+    <div
+      class="mt-20 grid sm:grid-colos-1 md:grid-cols-2 lg:grid-cols-3 gap-28 items-center"
+    >
       {
         speakers.map((speaker) => (
           <Speaker
