@@ -21,6 +21,8 @@ export async function signout() {
     Sentry.captureException(error);
     return false;
   }
+
+  window.location.href = "/";
 }
 
 export async function getUser() {

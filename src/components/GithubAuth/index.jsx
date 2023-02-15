@@ -19,11 +19,13 @@ export default function GithubAuth() {
   return (
     <div>
       {user ? (
-        <img
-          src={user.user_metadata.avatar_url}
-          width={40}
-          className="rounded-full cursor-pointer"
-        />
+        <a href="/profile">
+          <img
+            src={user.user_metadata.avatar_url}
+            width={40}
+            className="rounded-full cursor-pointer"
+          />
+        </a>
       ) : (
         <button
           onClick={fetchLogin}

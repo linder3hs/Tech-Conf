@@ -5,6 +5,7 @@ import {
   getTicketRecord,
   getDataFromTable,
 } from "../../services/config";
+import SignUp from "../SingUp";
 import Swal from "sweetalert2";
 import "./index.css";
 
@@ -12,6 +13,8 @@ export default function Card(props) {
   const { title, body, date, capacity, id } = props;
 
   const [isSubscribed, setIsSubscribed] = useState(true);
+
+  const [isLogged, setIsLogged] = useState(false);
 
   const [tickets, setTickets] = useState(0);
 
@@ -26,6 +29,8 @@ export default function Card(props) {
 
   const handleIsSubscribed = async () => {
     const { user } = await getUser();
+
+    if (!user) return setIsLogged(false);
 
     const { length } = await getTicketRecord(id, user.id);
 
@@ -60,8 +65,6 @@ export default function Card(props) {
       title: "¡Genial!",
       text: "Te has inscrito al evento",
     });
-
-    return;
   };
 
   useEffect(() => {
@@ -87,12 +90,18 @@ export default function Card(props) {
             Iscribirme
           </button>
         ) : (
-          <button
-            onClick={handleSubscribe}
-            className="bg-red-500 text-white p-2 font-bold rounded-full px-9"
-          >
-            Ver Ticket
-          </button>
+          <>
+            {isLogged ? (
+              <button
+                onClick={handleSubscribe}
+                className="bg-red-500 text-white p-2 font-bold rounded-full px-9"
+              >
+                Ver Ticket
+              </button>
+            ) : (
+              <SignUp />
+            )}
+          </>
         )}
 
         <p>
