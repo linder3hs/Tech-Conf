@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { getUser } from "../../services/auth";
 import { getDataFromTable } from "../../services/config";
 import github from "../../assets/github-mark.svg";
+import "./index.css";
 
 export default function Tickets() {
   const [user, setUser] = useState(null);
@@ -36,12 +37,9 @@ export default function Tickets() {
   return (
     <>
       {tickets.map((ticket, index) => (
-        <div
-          key={ticket.id}
-          className="mt-10 bg-white border-4 border-red-500 shadow rounded-2xl p-10"
-        >
-          <div className="">
-            <div className="flex gap-5">
+        <div key={ticket.id} className="mt-10 bg-ticket">
+          <div className="ticket-content">
+            <div className="flex gap-5 mt-10">
               <div>
                 <img
                   width={52}
@@ -59,11 +57,13 @@ export default function Tickets() {
                 </p>
               </div>
             </div>
-            <h3 className="mt-10 font-extrabold text-2xl">
+            <h3 className="mt-5 font-extrabold text-2xl">
               ⭐️ {ticket.events.title}
             </h3>
-            <p className="mt-5 text-gray-500">{ticket.events.description}</p>
-            <div className="mt-10 flex gap-5">
+            <p className="mt-5 text-gray-500 truncate">
+              {ticket.events.description}
+            </p>
+            <div className="mt-5 flex gap-5 mb-5">
               <div className="flex-1">
                 <p className="text-gray-500">📅 Fecha: </p>
                 <p className="font-extrabold">{ticket.events.date}</p>

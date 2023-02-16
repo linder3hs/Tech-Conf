@@ -1,0 +1,14 @@
+.bg-ticket {
+  background-image: url("../../assets/ticket-frame.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 530px;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.ticket-content {
+  width: 500px;
+  margin: auto;
+  padding: 20px;
+}
