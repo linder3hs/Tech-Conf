@@ -38,7 +38,7 @@ export default function Tickets() {
       {tickets.map((ticket, index) => (
         <div
           key={ticket.id}
-          className="mt-10 bg-white border-4 border-red-500 shadow rounded-lg p-10"
+          className="mt-10 bg-white border-4 border-red-500 shadow rounded-2xl p-10"
         >
           <div className="">
             <div className="flex gap-5">
