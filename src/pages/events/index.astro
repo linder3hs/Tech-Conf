@@ -11,12 +11,17 @@ const events = await getDataFromTable("events");
     <h2 class="text-4xl">⭐️ Eventos</h2>
     <div class="mt-10 grid md:grid-cols-4 sm:grid-cols-1 gap-6">
       {
-        events.map((event) => (
-          <Card
-            client:load
-            event={event}
-          />
-        ))
+        events &&
+          events.map((event) => (
+            <Card
+              client:load
+              id={event.id}
+              title={event.title}
+              description={event.description}
+              image={event.image}
+              date={event.date}
+            />
+          ))
       }
     </div>
   </main>

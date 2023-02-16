@@ -9,7 +9,7 @@ import Swal from "sweetalert2";
 import "./index.css";
 
 export default function Card(props) {
-  const { title, description, date, capacity, id } = props.event;
+  const { title, description, date, capacity, id } = props;
 
   const [isSubscribed, setIsSubscribed] = useState(true);
 

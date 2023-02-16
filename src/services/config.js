@@ -16,7 +16,7 @@ export async function getDataFromTable(table, condition = null, select = "*") {
 
   if (error) {
     Sentry.captureException(error);
-    return [];
+    return null;
   }
 
   if (condition) {
