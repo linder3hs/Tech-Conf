@@ -5,7 +5,6 @@ import {
   getTicketRecord,
   getDataFromTable,
 } from "../../services/config";
-import SignUp from "../SingUp";
 import Swal from "sweetalert2";
 import "./index.css";
 
@@ -13,8 +12,6 @@ export default function Card(props) {
   const { title, description, date, capacity, id } = props.event;
 
   const [isSubscribed, setIsSubscribed] = useState(true);
-
-  const [isLogged, setIsLogged] = useState(false);
 
   const [tickets, setTickets] = useState(0);
 
@@ -30,7 +27,7 @@ export default function Card(props) {
   const handleIsSubscribed = async () => {
     const { user } = await getUser();
 
-    if (!user) return setIsLogged(false);
+    if (!user) return;
 
     const { length } = await getTicketRecord(id, user.id);
 
@@ -77,7 +74,7 @@ export default function Card(props) {
 
   return (
     <div className="bg-white p-6 border border-gray-200 rounded-lg shadow">
-      <h2 className="font-bold text-2xl h-16">{title}</h2>
+      <h2 className="font-bold text-2xl h-16">{title ?? ""}</h2>
       <p className="mt-5 h-20">{description}</p>
 
       <p className="mt-10 text-blue-800 font-bold">{date}</p>
