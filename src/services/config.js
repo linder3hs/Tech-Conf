@@ -8,10 +8,10 @@ const supabase = createClient(
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im52cGFrbmp4ZGdsbnJraGFobmFxIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzU5MzQ4MjMsImV4cCI6MTk5MTUxMDgyM30.yaixrMiLozraxdYQAKDkA5ta8H-fKn6NTcFAX25cXHU"
 );
 
-export async function getDataFromTable(table, condition = null) {
+export async function getDataFromTable(table, condition = null, select = "*") {
   const { data, error } = await supabase
     .from(table)
-    .select("*")
+    .select(select)
     .order("id", { ascending: true });
 
   if (error) {

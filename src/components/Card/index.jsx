@@ -10,7 +10,7 @@ import Swal from "sweetalert2";
 import "./index.css";
 
 export default function Card(props) {
-  const { title, body, date, capacity, id } = props;
+  const { title, description, date, capacity, id } = props.event;
 
   const [isSubscribed, setIsSubscribed] = useState(true);
 
@@ -78,7 +78,7 @@ export default function Card(props) {
   return (
     <div className="bg-white p-6 border border-gray-200 rounded-lg shadow">
       <h2 className="font-bold text-2xl h-16">{title}</h2>
-      <p className="mt-5 h-20">{body}</p>
+      <p className="mt-5 h-20">{description}</p>
 
       <p className="mt-10 text-blue-800 font-bold">{date}</p>
       <div className="mt-10 flex items-center justify-between ">
@@ -90,18 +90,12 @@ export default function Card(props) {
             Iscribirme
           </button>
         ) : (
-          <>
-            {isLogged ? (
-              <button
-                onClick={handleSubscribe}
-                className="bg-red-500 text-white p-2 font-bold rounded-full px-9"
-              >
-                Ver Ticket
-              </button>
-            ) : (
-              <SignUp />
-            )}
-          </>
+          <button
+            onClick={handleSubscribe}
+            className="bg-red-500 text-white p-2 font-bold rounded-full px-9"
+          >
+            Ver Ticket
+          </button>
         )}
 
         <p>

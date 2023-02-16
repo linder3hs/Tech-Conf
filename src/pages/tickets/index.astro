@@ -1,10 +1,15 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import Tickets from "../../components/Tikcets";
 ---
 
 <Layout title="Tikcets">
   <main>
-    <h1>Mis Tickets</h1>
-    <h1>on working...</h1>
+    <div class="lg:w-3/4 m-auto">
+      <div>
+        <h2 class="text-2xl font-extrabold">Mis Tickets</h2>
+      </div>
+      <Tickets client:load />
+    </div>
   </main>
 </Layout>

@@ -14,12 +14,7 @@ const events = await getDataFromTable("events");
         events.map((event) => (
           <Card
             client:load
-            id={event.id}
-            title={event.title}
-            body={event.description}
-            date={event.date}
-            capacity={event.capacity}
-            href={`/events/${event.id}`}
+            event={event}
           />
         ))
       }
