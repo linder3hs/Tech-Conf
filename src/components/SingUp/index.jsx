@@ -1,5 +1,4 @@
 import { signInWithGitHub } from "../../services/auth";
-import github from "../../assets/github-mark.svg";
 
 export default function SignUp() {
   return (
