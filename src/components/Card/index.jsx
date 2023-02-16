@@ -90,12 +90,12 @@ export default function Card(props) {
             Iscribirme
           </button>
         ) : (
-          <button
-            onClick={handleSubscribe}
+          <a
+            href="/tickets"
             className="bg-red-500 text-white p-2 font-bold rounded-full px-9"
           >
             Ver Ticket
-          </button>
+          </a>
         )}
 
         <p>
