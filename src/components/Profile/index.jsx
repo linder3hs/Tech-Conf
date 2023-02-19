@@ -6,7 +6,6 @@ export default function Profile() {
 
   const fetchUser = async () => {
     const { user } = await getUser();
-    console.log(user);
     setUser(user.user_metadata);
   };
 

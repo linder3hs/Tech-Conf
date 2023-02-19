@@ -11,7 +11,6 @@ export default function Tickets() {
 
   const fetchUser = async () => {
     const { user } = await getUser();
-    console.log(user);
     setUser(user);
 
     return user;
@@ -26,7 +25,6 @@ export default function Tickets() {
       },
       `*, events(*)`
     );
-    console.log(tickets);
     setTickets(tickets);
   };
 
@@ -36,7 +34,7 @@ export default function Tickets() {
 
   return (
     <>
-      {tickets.map((ticket, index) => (
+      {tickets.map((ticket) => (
         <div key={ticket.id} className="mt-10 bg-ticket">
           <div className="ticket-content">
             <div className="flex gap-5 mt-10">
@@ -57,16 +55,12 @@ export default function Tickets() {
                 </p>
               </div>
             </div>
-            <h3 className="mt-5 font-extrabold text-2xl">
+            <h3 className="mt-5 font-extrabold lg:text-2xl sm:text-sm">
               ⭐️ {ticket.events.title}
             </h3>
-            <p className="mt-5 text-gray-500 truncate">
-              {ticket.events.description}
-            </p>
             <div className="mt-5 flex gap-5 mb-5">
               <div className="flex-1">
-                <p className="text-gray-500">📅 Fecha: </p>
-                <p className="font-extrabold">{ticket.events.date}</p>
+                <p className="text-gray-500">{ticket.events.date} </p>
               </div>
             </div>
           </div>

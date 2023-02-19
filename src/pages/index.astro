@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Home from "../components/Home/Home.astro";
 import About from "../components/About/index.astro";
-import Sponsors from "../components/Sponsors/index.astro";
+import Sponsors from "../components/Sponsors";
 import Footer from "../components/Footer/index.astro";
 ---
 
@@ -14,7 +14,7 @@ import Footer from "../components/Footer/index.astro";
     <About />
   </div>
   <div id="sponsors" class="bg-gray-100">
-    <Sponsors />
+    <Sponsors client:visible />
   </div>
   <div class="bg-gray-800 p-5">
     <Footer />

@@ -12,3 +12,13 @@
   margin: auto;
   padding: 20px;
 }
+
+/* media query mobile */
+@media screen and (max-width: 480px) {
+  .bg-ticket {
+    width: 100%;
+  }
+  .ticket-content {
+    width: 100%;
+  }
+}
