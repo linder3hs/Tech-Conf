@@ -1,43 +1,25 @@
+import {useState, useEffect} from "react"
 import { Disclosure } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import GithubAuth from "../GithubAuth";
-
-const navigation = [
-  {
-    name: "Home",
-    href: "/",
-    current: true,
-  },
-  {
-    name: "Eventos",
-    href: "/events",
-    current: false,
-  },
-  {
-    name: "Speakers",
-    href: "/speakers",
-    current: false,
-  },
-  {
-    name: "Sponsors",
-    href: "/#sponsors",
-    current: false,
-  },
-  {
-    name: "Mis Tickets",
-    href: "/tickets",
-    current: false,
-  },
-];
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
+import { navigation, classNames } from "./items";
 
 export default function Layout() {
+  const [current, setCurrent] = useState(navigation[0].name);
+
+  const handleCurrent = () => {
+    const currentPath = window.location.pathname;
+    const currentName = navigation.find((item) => item.href === currentPath);
+    if (currentName) setCurrent(currentName.name); 
+  };
+
+  useEffect(() => {
+    handleCurrent();
+  }, []);
+
   return (
     <div>
-      <Disclosure as="nav" className="bg-gray-800 p-5">
+      <Disclosure as="nav" className="bg-gray-800 p-2">
         {({ open }) => (
           <>
             <div className="mx-auto max-w-7xl px-6 sm:px-6 lg:px-8">
@@ -59,12 +41,7 @@ export default function Layout() {
                         <a
                           key={item.name}
                           href={item.href}
-                          className={classNames(
-                            item.current
-                              ? "bg-gray-900 text-white"
-                              : "text-gray-300 hover:bg-gray-700 hover:text-white",
-                            "px-3 py-2 rounded-md text-sm font-medium"
-                          )}
+                          className={current === item.name ? "bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" : "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"}
                           aria-current={item.current ? "page" : undefined}
                         >
                           <span className="text-lg">{item.name}</span>
