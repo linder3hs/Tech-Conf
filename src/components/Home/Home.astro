@@ -1,18 +1,30 @@
+---
+import discord from "../../assets/discord-logo.png";
+---
+
 <div class="h-screen flex justify-center items-center -mt-20">
   <div class="text-center">
-    <h1 class="md:text-9xl sm:text-4xl text-white">Tech Conf</h1>
-    <p class="text-white text-center text-2xl mt-10">
+    <h1 class="md:text-9xl sm:text-4xl text-white">TECH CONF</h1>
+    <p class="text-white text-center text-2xl mt-10 font-extrabold">
       Únete a nuestra comunidad y
     </p>
-    <p class="text-white text-center text-2xl">
+    <p class="text-white text-center text-2xl font-extrabold">
       se parte de las mejores charlas de Tech.
     </p>
-    <div class="mt-10 flex justify-center">
+    <div class="mt-10 flex justify-center gap-10 items-center">
       <a
         href="/events"
         class="bg-gray-900 text-white p-5 rounded-full shadow-md text-xl"
         >Ver eventos</a
       >
+      <a
+        href="https://discord.gg/mAxZPpxq9e"
+        title="Únete a nuestro discord"
+        target="_blank"
+        class="text-xl"
+      >
+        <img src={discord} width="50" alt="" />
+      </a>
     </div>
   </div>
 </div>
