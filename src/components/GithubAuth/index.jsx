@@ -30,9 +30,8 @@ export default function GithubAuth() {
         <button
           onClick={fetchLogin}
           type="button"
-          className="flex rounded-full bg-white text-sm"
+          className="rounded-full mt-2 bg-white text-sm border"
         >
-          <span className="sr-only">Open user menu</span>
           <img className="h-8 w-8 rounded-full" src={github} alt="" />
         </button>
       )}
