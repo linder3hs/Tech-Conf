@@ -6,9 +6,17 @@ import {
   getDataFromTable,
 } from "../../services/config";
 import Swal from "sweetalert2";
-import "./index.css";
+import type { User } from "../../interfaces/user";
 
-export default function Card(props) {
+interface Props {
+  title: string;
+  description: string;
+  date: string;
+  capacity: number;
+  id: string;
+}
+
+export default function Card(props: Props) {
   const { title, description, date, capacity, id } = props;
 
   const [isSubscribed, setIsSubscribed] = useState(true);
@@ -20,12 +28,14 @@ export default function Card(props) {
       key: "event_id",
       value: id,
     });
+    
+    if (!tickets) return;
 
     setTickets(tickets.length);
   };
 
   const handleIsSubscribed = async () => {
-    const { user } = await getUser();
+    const user = await getUser() as User | null;
 
     if (!user) return;
 
@@ -37,7 +47,9 @@ export default function Card(props) {
   };
 
   const handleSubscribe = async () => {
-    const { user } = await getUser();
+    const user = await getUser() as User | null;
+
+    if (!user) return;
 
     const response = await insertDataIntoTable("tickets", {
       user_id: user.id,

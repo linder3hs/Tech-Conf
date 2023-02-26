@@ -30,8 +30,8 @@ export async function getUser() {
 
   if (error) {
     Sentry.captureException(error);
-    return false;
+    return null;
   }
 
-  return data;
+  return data.user;
 }

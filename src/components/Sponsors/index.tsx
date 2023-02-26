@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { getDataFromTable } from "../../services/config";
+import type { ISponsor } from "../../interfaces/sponsor";
 
 export default function Sponsors() {
-  const [sponsors, setSponsors] = useState([]);
+  const [sponsors, setSponsors] = useState<ISponsor[]>([]);
 
   const fetchSponsors = async () => {
     const data = await getDataFromTable("sponsors");
@@ -20,7 +21,7 @@ export default function Sponsors() {
       </p>
 
       <div className="grid lg:grid-cols-4 sm:grid-cols-1 mt-28 items-center gap-24">
-        {sponsors.map((sponsor) => (
+        {sponsors.map((sponsor: ISponsor) => (
           <div key={sponsor.id}>
             <img width={300} src={sponsor.src} alt={sponsor.alt} />
           </div>

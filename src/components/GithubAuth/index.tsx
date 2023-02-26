@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
 import { signInWithGitHub, getUser } from "../../services/auth";
 import github from "../../assets/github-mark.svg";
+import type { User } from "../../interfaces/user";
 
 export default function GithubAuth() {
   const fetchLogin = async () => await signInWithGitHub();
 
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState<User | null>(null);
 
   const fetchUser = async () => {
-    const { user } = await getUser();
+    const user = await getUser() as User | null;
     setUser(user);
   };
 
@@ -18,7 +19,7 @@ export default function GithubAuth() {
 
   return (
     <div>
-      {user ? (
+      {user && user ? (
         <a href="/profile">
           <img
             src={user.user_metadata.avatar_url}

@@ -2,21 +2,28 @@ import { useState, useEffect } from "react";
 import { getUser } from "../../services/auth";
 import { getDataFromTable } from "../../services/config";
 import github from "../../assets/github-mark.svg";
+import type { User } from "../../interfaces/user";
+import type { ITickets } from "../../interfaces/tickets";
 import "./index.css";
 
 export default function Tickets() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState<User | null>(null);
 
-  const [tickets, setTickets] = useState([]);
+  const [tickets, setTickets] = useState<ITickets[]>([]);
 
-  const fetchUser = async () => {
-    const { user } = await getUser();
+  const fetchUser = async (): Promise<User | null> => {
+    const user = await getUser() as User | null;
+
+    if (!user) return null;
+
     setUser(user);
 
     return user;
   };
 
-  const fetchTickets = async (user) => {
+  const fetchTickets = async (user: User | null) => {
+    if (!user) return;
+
     const tickets = await getDataFromTable(
       "tickets",
       {
@@ -25,16 +32,17 @@ export default function Tickets() {
       },
       `*, events(*)`
     );
+
     setTickets(tickets);
   };
 
   useEffect(() => {
-    fetchUser().then((user) => fetchTickets(user));
+    fetchUser().then((user: User | null) => fetchTickets(user));
   }, []);
 
   return (
     <>
-      {tickets.map((ticket) => (
+      {user && tickets.map((ticket: ITickets) => (
         <div key={ticket.id} className="mt-10 bg-ticket">
           <div className="ticket-content">
             <div className="flex gap-5 mt-10">
