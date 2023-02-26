@@ -2,8 +2,9 @@
 import Layout from "../../layouts/Layout.astro";
 import Speaker from "../../components/Speaker/index.astro";
 import { getDataFromTable } from "../../services/config";
+import type { ISpeaker } from "../../interfaces/speaker";
 
-const speakers = await getDataFromTable("speakers");
+const speakers = (await getDataFromTable("speakers")) as ISpeaker[];
 ---
 
 <Layout title="Speakers | Tech Conf">
@@ -14,7 +15,7 @@ const speakers = await getDataFromTable("speakers");
     >
       {
         speakers?.length > 0 &&
-          speakers.map((speaker) => (
+          speakers.map((speaker: ISpeaker) => (
             <Speaker
               image={speaker.image}
               name={speaker.name}

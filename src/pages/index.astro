@@ -4,6 +4,7 @@ import Home from "../components/Home/Home.astro";
 import About from "../components/About/index.astro";
 import Sponsors from "../components/Sponsors";
 import Footer from "../components/Footer/index.astro";
+import How from "../components/How/index.astro";
 ---
 
 <Layout title="Tech Conf">
@@ -12,6 +13,9 @@ import Footer from "../components/Footer/index.astro";
   </div>
   <div id="about" class="m-5">
     <About />
+  </div>
+  <div class="m-5">
+    <How />
   </div>
   <div id="sponsors" class="bg-gray-100">
     <Sponsors client:visible />

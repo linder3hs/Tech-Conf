@@ -1,0 +1,47 @@
+---
+import teach from "../../assets/teach.svg";
+import virtual from "../../assets/virtual.svg";
+---
+
+<div class="mt-5 flex items-center flex-col">
+  <div class="md:w-3/5">
+    <h2 class="sm:mt-16 md:text-7xl lg:text-8xl font-extrabold text-center">
+      ¿Cómo se podrá ver el evento?
+    </h2>
+  </div>
+  <div
+    class="grid sm:grid-cols-1 md:grid-cols-2 gap-10 justify-around w-full mt-16"
+  >
+    <div class="bg-gray-800 rounded-md text-white p-10">
+      <h2 class="text-2xl mb-5">Virtual</h2>
+      <p class="font-medium">
+        . Desde la comodidad de tu casa, oficina o cualquier lugar que te
+        encuentres.
+      </p>
+      <p class="font-medium">
+        . Podrás ver el evento en vivo desde tu computadora, tablet o celular.
+      </p>
+      <p class="font-medium">
+        . Podrás interactuar con los ponentes y con los demás asistentes.
+      </p>
+      <div class="text-center mt-20">
+        <img width="200" height="200" src={teach} />
+      </div>
+    </div>
+    <div class="bg-red-500 rounded-md text-white p-10">
+      <h2 class="text-2xl mb-5">Presencial</h2>
+      <p class="font-medium">
+        . Podrás asistir al evento en vivo en el lugar indicado.
+      </p>
+      <p class="font-medium">
+        . Podrás interactuar con los ponentes y con los demás asistentes.
+      </p>
+      <p class="font-medium">
+        . Accede a los sorteos y premios que se realizarán durante el evento.
+      </p>
+      <div class="text-center mt-20">
+        <img width="200" height="200" src={virtual} />
+      </div>
+    </div>
+  </div>
+</div>
