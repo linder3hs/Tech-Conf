@@ -31,6 +31,7 @@ export default function GithubAuth() {
         <button
           onClick={fetchLogin}
           type="button"
+          title="Sign in with GitHub"
           className="rounded-full mt-2 bg-white text-sm border"
         >
           <img className="h-8 w-8 rounded-full" src={github} alt="" />

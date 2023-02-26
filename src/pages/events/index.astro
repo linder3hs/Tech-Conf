@@ -2,8 +2,9 @@
 import Layout from "../../layouts/Layout.astro";
 import Card from "../../components/Card/index";
 import { getDataFromTable } from "../../services/config";
+import type { IEvent } from "../../interfaces/tickets";
 
-const events = await getDataFromTable("events");
+const events = (await getDataFromTable("events")) as IEvent[];
 ---
 
 <Layout title="Eventos | Tech Conf">
@@ -12,13 +13,12 @@ const events = await getDataFromTable("events");
     <div class="mt-10 grid md:grid-cols-3 sm:grid-cols-1 gap-6">
       {
         events &&
-          events.map((event) => (
+          events.map((event: IEvent) => (
             <Card
               client:load
-              id={event.id}
+              id={String(event.id)}
               title={event.title}
               description={event.description}
-              image={event.image}
               date={event.date}
               capacity={event.capacity}
             />

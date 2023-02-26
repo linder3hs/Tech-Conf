@@ -29,7 +29,7 @@ export default function Sponsors() {
       </div>
 
       <a
-        className="mt-28 bg-green-400 text-white p-5 rounded-full shadow-md text-xl"
+        className="mt-28 bg-green-400 text-gray-200 font-bold p-5 rounded-full shadow-md text-xl"
         href="https://wa.me/51967617166?text=Quiero%20ser%20un%20sponsor"
       >
         Sé un sponsor
