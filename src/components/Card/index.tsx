@@ -28,14 +28,14 @@ export default function Card(props: Props) {
       key: "event_id",
       value: id,
     });
-    
+
     if (!tickets) return;
 
     setTickets(tickets.length);
   };
 
   const handleIsSubscribed = async () => {
-    const user = await getUser() as User | null;
+    const user = (await getUser()) as User | null;
 
     if (!user) return;
 
@@ -47,7 +47,7 @@ export default function Card(props: Props) {
   };
 
   const handleSubscribe = async () => {
-    const user = await getUser() as User | null;
+    const user = (await getUser()) as User | null;
 
     if (!user) return;
 
@@ -88,20 +88,25 @@ export default function Card(props: Props) {
     <div className="bg-white p-6 border border-gray-200 rounded-lg shadow">
       <h2 className="font-bold text-2xl h-16">{title ?? ""}</h2>
       <p className="mt-5 h-20">{description}</p>
-
       <p className="mt-10 text-blue-800 font-bold">{date}</p>
-      <div className="mt-10 flex items-center justify-between ">
+      <div className="mt-10 flex items-center justify-between">
+        <a
+          href={`/events/${title.replaceAll(" ", "-")}`}
+          className="bg-red-500 text-white p-2 font-bold rounded-full px-5 font-mono"
+        >
+          Ver detalle
+        </a>
         {!isSubscribed ? (
           <button
             onClick={handleSubscribe}
-            className="bg-yellow-300 border-solid border-black border-2 p-2 font-bold rounded-full px-9"
+            className="bg-yellow-300 border-solid border-black border-2 p-2 font-bold rounded-full px-5 font-mono"
           >
             Iscribirme
           </button>
         ) : (
           <a
             href="/tickets"
-            className="bg-red-500 text-white p-2 font-bold rounded-full px-9"
+            className="bg-gray-800 text-white p-2 font-bold rounded-full px-5 font-mono"
           >
             Ver Ticket
           </a>

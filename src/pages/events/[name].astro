@@ -1,0 +1,23 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getDataFromTable } from "../../services/config";
+import type { IEvent } from "../../interfaces/tickets";
+
+export async function getStaticPaths() {
+  const events = await getDataFromTable("events");
+
+  return events.map((event: IEvent) => ({
+    params: { name: event.title.replaceAll(" ", "-") },
+  }));
+}
+
+const { name } = Astro.params;
+
+const title = name?.replaceAll("-", " ");
+---
+
+<Layout title={`${title} | Tech Conf`}>
+  <div class="m-5">
+    <h1>{title}</h1>
+  </div>
+</Layout>

@@ -1,30 +1,50 @@
 ---
-export const speakers = [
-  { name: "Linder", path: "linder" },
-  { name: "Chris", path: "chris" },
-  { name: "Sean", path: "sean" },
-  { name: "Evan", path: "evan" },
-  { name: "Rachel", path: "rachel" },
-  { name: "Nat", path: "nat" },
-  { name: "Jenn", path: "jenn" },
-  { name: "Mikenzi", path: "mikenzi" },
-  { name: "Kim", path: "kim" },
-  { name: "Tom", path: "tom" },
-  { name: "Tracy", path: "tracy" },
-  { name: "Jess", path: "jess" },
-  { name: "Matt", path: "matt" },
-];
+import Layout from "../../layouts/Layout.astro";
+import { getDataFromTable } from "../../services/config";
+import type { ISpeaker } from "../../interfaces/speaker";
 
-export function getStaticPaths() {
-  return speakers.map((speaker) => ({
-    params: { name: speaker.path },
-    props: { ...speaker },
+export async function getStaticPaths() {
+  const speakers = await getDataFromTable("speakers");
+
+  return speakers.map((speaker: ISpeaker) => ({
+    params: { name: speaker.name.replaceAll(" ", "-") },
   }));
 }
 
 const { name } = Astro.params;
+
+const speaker = await getDataFromTable("speakers", {
+  key: "name",
+  value: name?.replaceAll("-", " ") ?? "",
+});
+
+const {
+  name: fullname,
+  image,
+  github,
+  company,
+  position,
+  web,
+} = speaker[0] as ISpeaker;
 ---
 
-<div>
-  <h1>My name is {name}</h1>
-</div>
+<Layout title={`${name} | Tech Conf`}>
+  <div
+    class="flex sm:flex-col-reverse lg:flex-row items-center justify-evenly h-screen -mt-24 m-5"
+  >
+    <div>
+      <h1 class="hover:text-cyan-900">
+        <a href={web} target="_blank">
+          {fullname}
+        </a>
+      </h1>
+      <p class="font-extrabold text-lg mt-1">{company} - {position}</p>
+      <p class="text-red-500 mt-1 text-lg font-bold font-mono">
+        <a target="_blank" href={`https://github.com/${github}`}>@{github}</a>
+      </p>
+    </div>
+    <div>
+      <img src={image} class="rounded-full" width="200" alt="" />
+    </div>
+  </div>
+</Layout>
