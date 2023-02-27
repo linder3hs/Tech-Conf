@@ -1,17 +1,27 @@
 ---
+import github from "../../assets/github-mark.svg";
 ---
 
-<div class="flex p-5 m-5 justify-around">
+<div class="flex p-5 m-5 justify-around items-center">
   <div>
-    <p class="md:text-2xl sm:text-lg text-white">
-      Conferencias {new Date().getFullYear()}
+    <p class="md:text-2xl sm:text-lg text-white font-mono">
+      Tech Conf - {new Date().getFullYear()}
     </p>
   </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <div>
+  <div class="flex items-center gap-5">
     <a
-      class="bg-gray-900 text-white p-5 rounded-full shadow-md text-xl"
-      href="https://wa.me/51967617166?text=Quiero%20ser%20un%20sponsor"
+      class="bg-gray-900 text-white py-3 px-5 rounded-full shadow-md text-lg"
+      href="https://wa.me/51967617166?text=Quiero%20ser%parte%20del%20proyecto%20Tech%20Conf"
       target="_blank">Contáctanos</a
     >
+    <a
+      href="https://github.com/linder3hs/Tech-Conf"
+      type="button"
+      title="Sign in with GitHub"
+      target="_blank"
+      class="rounded-full bg-white text-sm border"
+    >
+      <img class="h-8 w-8 rounded-full" src={github} alt="" />
+    </a>
   </div>
 </div>

@@ -12,15 +12,10 @@ const { image, name, github } = Astro.props;
   class="sm:flex sm:flex-col sm:items-center sm:justify-center text-center hover:scale-105 hover:cursor-pointer"
 >
   <a href={`speakers/${name.replaceAll(" ", "-")}`}>
-    <img
-      width="170"
-      class="rounded-full sm:m-auto sm:flex"
-      src={image}
-      alt={name}
-    />
+    <img width="170" class="rounded sm:m-auto sm:flex" src={image} alt={name} />
   </a>
-  <h2 class="text-xl mt-3 font-bold">{name}</h2>
+  <h2 class="text-lg mt-3 font-bold text-center">{name}</h2>
   <a href={`https://github.com/${github}`} target="_blank">
-    <h5 class="text-lg font-semibold text-red-400">@{github}</h5>
+    <h5 class="text-sm font-semibold text-red-500 mt-1">@{github}</h5>
   </a>
 </div>

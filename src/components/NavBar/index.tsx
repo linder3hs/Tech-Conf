@@ -1,4 +1,4 @@
-import {useState, useEffect} from "react"
+import { useState, useEffect } from "react";
 import { Disclosure } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import GithubAuth from "../GithubAuth";
@@ -10,7 +10,7 @@ export default function Layout() {
   const handleCurrent = () => {
     const currentPath = window.location.pathname;
     const currentName = navigation.find((item) => item.href === currentPath);
-    if (currentName) setCurrent(currentName.name); 
+    if (currentName) setCurrent(currentName.name);
   };
 
   useEffect(() => {
@@ -41,7 +41,11 @@ export default function Layout() {
                         <a
                           key={item.name}
                           href={item.href}
-                          className={current === item.name ? "bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" : "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"}
+                          className={
+                            current === item.name
+                              ? "bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
+                              : "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                          }
                           aria-current={item.current ? "page" : undefined}
                         >
                           <span className="text-lg">{item.name}</span>

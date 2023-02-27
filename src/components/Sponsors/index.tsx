@@ -17,8 +17,8 @@ export default function Sponsors() {
   return (
     <div className="h-screen flex flex-col justify-center items-center">
       <div className="md:w-3/5">
-        <h2 className="sm:mt-16 md:text-7xl lg:text-8xl font-extrabold text-center">
-          Nuestros Sponsors
+        <h2 className="sm:mt-16 md:text-7xl lg:text-6xl font-extrabold text-center">
+          Nuestros Sponsors 🤝
         </h2>
       </div>
 

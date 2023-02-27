@@ -9,7 +9,7 @@ export default function GithubAuth() {
   const [user, setUser] = useState<User | null>(null);
 
   const fetchUser = async () => {
-    const user = await getUser() as User | null;
+    const user = (await getUser()) as User | null;
     setUser(user);
   };
 
@@ -19,7 +19,7 @@ export default function GithubAuth() {
 
   return (
     <div>
-      {user && user ? (
+      {user ? (
         <a href="/profile">
           <img
             src={user.user_metadata.avatar_url}
