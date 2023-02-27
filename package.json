@@ -15,6 +15,7 @@
     "@astrojs/tailwind": "3.0.1",
     "@fontsource/ibm-plex-mono": "4.5.13",
     "@headlessui/react": "1.7.11",
+    "@heroicons/react": "2.0.16",
     "@sentry/browser": "7.37.1",
     "@sentry/tracing": "7.37.1",
     "@supabase/auth-ui-react": "0.2.7",
