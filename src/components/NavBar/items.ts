@@ -15,6 +15,11 @@ export const navigation = [
     current: false,
   },
   {
+    name: "Código de conducta",
+    href: "/code-of-conduct",
+    current: false,
+  },
+  {
     name: "Sponsors",
     href: "/#sponsors",
     current: false,

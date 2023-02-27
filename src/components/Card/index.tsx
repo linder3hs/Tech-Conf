@@ -92,21 +92,21 @@ export default function Card(props: Props) {
       <div className="mt-10 flex items-center justify-between">
         <a
           href={`/events/${title.replaceAll(" ", "-")}`}
-          className="bg-red-500 text-white p-2 font-bold rounded-full px-5 font-mono"
+          className="bg-red-500 text-white p-2 font-bold rounded-full px-5"
         >
           Ver detalle
         </a>
         {!isSubscribed ? (
           <button
             onClick={handleSubscribe}
-            className="bg-yellow-300 border-solid border-black border-2 p-2 font-bold rounded-full px-5 font-mono"
+            className="bg-yellow-300 border-solid border-black border-2 p-2 font-bold rounded-full px-5"
           >
             Iscribirme
           </button>
         ) : (
           <a
             href="/tickets"
-            className="bg-gray-800 text-white p-2 font-bold rounded-full px-5 font-mono"
+            className="bg-gray-800 text-white p-2 font-bold rounded-full px-5"
           >
             Ver Ticket
           </a>
