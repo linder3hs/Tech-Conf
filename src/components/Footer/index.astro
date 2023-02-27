@@ -1,13 +1,15 @@
 ---
-import github from "../../assets/github-mark.svg";
+import github from "../../assets/github-white.svg";
 ---
 
-<div class="flex p-5 m-5 justify-around items-center">
+<div
+  class="lg:flex sm:flex-col lg:flex-row p-5 m-5 justify-around items-center"
+>
   <div>
-    <p class="md:text-2xl sm:text-lg text-white">
+    <p class="md:text-2xl sm:text-lg text-white text-center">
       Tech Conf - {new Date().getFullYear()}
     </p>
-  </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </div>
   <div class="flex items-center gap-5">
     <a
       class="bg-gray-900 text-white py-3 px-5 rounded-full shadow-md text-lg"
@@ -19,7 +21,7 @@ import github from "../../assets/github-mark.svg";
       type="button"
       title="Sign in with GitHub"
       target="_blank"
-      class="rounded-full bg-white text-sm border"
+      class="rounded-full text-sm"
     >
       <img class="h-8 w-8 rounded-full" src={github} alt="" />
     </a>

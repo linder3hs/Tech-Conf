@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { signInWithGitHub, getUser } from "../../services/auth";
-import github from "../../assets/github-mark.svg";
+import github from "../../assets/github-white.svg";
 import type { User } from "../../interfaces/user";
 
 export default function GithubAuth() {
@@ -32,7 +32,7 @@ export default function GithubAuth() {
           onClick={fetchLogin}
           type="button"
           title="Sign in with GitHub"
-          className="rounded-full mt-2 bg-white text-sm border"
+          className="rounded-full mt-2 text-sm"
         >
           <img className="h-8 w-8 rounded-full" src={github} alt="" />
         </button>
