@@ -7,14 +7,7 @@ import {
 } from "../../services/config";
 import Swal from "sweetalert2";
 import type { User } from "../../interfaces/user";
-
-interface Props {
-  title: string;
-  description: string;
-  date: string;
-  capacity: number;
-  id: string;
-}
+import type { Props } from "./types";
 
 export default function Card(props: Props) {
   const { title, description, date, capacity, id } = props;
@@ -22,6 +15,8 @@ export default function Card(props: Props) {
   const [isSubscribed, setIsSubscribed] = useState(true);
 
   const [tickets, setTickets] = useState(0);
+
+  const [disabled, setDisabled] = useState(true);
 
   const handleGetTickets = async () => {
     const tickets = await getDataFromTable("tickets", {
@@ -42,7 +37,7 @@ export default function Card(props: Props) {
     const { length } = await getTicketRecord(id, user.id);
 
     if (length) return;
-
+    setDisabled(false);
     setIsSubscribed(false);
   };
 
@@ -50,6 +45,8 @@ export default function Card(props: Props) {
     const user = (await getUser()) as User | null;
 
     if (!user) return;
+
+    setDisabled(true);
 
     const response = await insertDataIntoTable("tickets", {
       user_id: user.id,
@@ -99,6 +96,7 @@ export default function Card(props: Props) {
         {!isSubscribed ? (
           <button
             onClick={handleSubscribe}
+            disabled={disabled}
             className="bg-yellow-300 border-solid border-black border-2 p-2 font-bold rounded-full px-5"
           >
             Iscribirme
