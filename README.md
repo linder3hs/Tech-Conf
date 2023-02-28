@@ -1,13 +1,17 @@
-# Conferencias de Software - Peru 🇵🇪
+# Tech Conf - Peru 🇵🇪
 
 Buscamos compartir conocimiento y experiencias de la comunidad de software en Perú.
 
-Inicialmente, este proyecto fue creado para la conferencia [ConfPe](https://conferences-ten.vercel.app/), pero ahora es un proyecto de código abierto para que cualquier conferencia de software en Perú pueda usarlo.
+Inicialmente, este proyecto fue creado para la conferencia [TechConf](https://www.techconf.lat/), pero ahora es un proyecto de código abierto para que cualquier conferencia de software en Perú pueda usarlo.
 
-Planeamos empezar a hacer charlas en Tecsup, pero buscamos expandirnos
+Planeamos empezar a hacer charlas en Lima, Perú 🇵🇪, pero buscamos expandirnos
 y poder compartir esto en todo el país.
 
-## Colabora
+## ❤️ Comunidad
+
+Si quieres unirte a la comunidad de software en Perú, puedes unirte a nuestro [Discord](https://discord.gg/mAxZPpxq9e) y así poder compartir conocimiento y experiencias.
+
+## 🖇️ Colabora
 
 Si quieres colaborar con este proyecto, puedes hacerlo de las siguientes maneras:
 
@@ -16,29 +20,19 @@ Si quieres colaborar con este proyecto, puedes hacerlo de las siguientes maneras
 - [ ] Crear un PR con la mejora que quieras hacer
 - [ ] Asigname con reviewer @linder3hs
 
-*Recuerda usar el PR Template que tiene el repositorio*
+<strong>* Recuerda usar el PR Template que tiene el repositorio</strong>
 
-## 🚀 Project Structure
+## 👨🏻‍💻 Tech Stack
 
-Inside of your Astro project, you'll see the following folders and files:
+### Astro 🚀
 
-```bash
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── /**.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+Este proyecto esta construido con [Astro](https://astro.build/), un generador de sitios estáticos moderno y rápido, así como también usamos React con typescript para ciertas partes de la web.
 
-Este proyecto esta construido con [Astro](https://astro.build/), un generador de sitios estáticos moderno y rápido.
+### 💾 Supabase
 
-## 🧞 Commands
+Usamos [Supabase](https://supabase.io/) para almacenar los diferentes datos de los speakers, sponsors, etc.
+
+### 🧞 Commands
 
 All commands are run from the root of the project, from a terminal:
 
@@ -51,6 +45,10 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro ...`    | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro --help` | Get help using the Astro CLI                     |
 
-## 👀 Want to learn more?
+## 👀 Ayudanos a encontrar errores
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Si encuentras algún error en la web, puedes crear un issue en el repositorio y así poder ayudar a mejorar la web. También puedes ayudarnos a mejorar la web haciendo un PR.
+
+## 📝 Licencia
+
+Este proyecto esta bajo la licencia MIT, puedes ver el archivo [LICENSE](LICENSE) para más información.
