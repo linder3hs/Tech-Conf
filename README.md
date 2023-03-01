@@ -22,6 +22,21 @@ Si quieres colaborar con este proyecto, puedes hacerlo de las siguientes maneras
 
 <strong>* Recuerda usar el PR Template que tiene el repositorio</strong>
 
+## 🪙 Sponsors
+
+Si quieres ser un sponsor de la conferencia, puedes completar el siguiente formulario:
+
+[Formulario de Sponsors](https://linderhassinger00.typeform.com/to/F64EamRc)
+
+Actualmente tenemos los siguientes sponsors:
+
+<!-- table -->
+
+| Sponsor | Logo | Link |
+| :--- | :--- | :--- |
+| Tecsup | ![Tecsup](https://www.tecsup.edu.pe/themes/tecsup/logo.svg) | [Tecsup](https://www.tecsup.edu.pe/) |
+| Codigo power by Tecsup | ![Codigo Tecsup](https://assets.website-files.com/624b2bd5b7be89e20392d489/624e1be85a96e3ac3e45f7fb_logo-color-go.svg) | [Codigo Tecsup](https://codigo.edu.pe/) |
+
 ## 👨🏻‍💻 Tech Stack
 
 ### Astro 🚀
