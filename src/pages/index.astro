@@ -23,7 +23,7 @@ const speakers = await getDataFromTable("speakers");
       Speakers 🎙️
     </h1>
     <div
-      class="mt-20 grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-10 items-center"
+      class="mt-10 grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-10 items-center"
     >
       {
         speakers?.length > 0 &&
@@ -32,6 +32,8 @@ const speakers = await getDataFromTable("speakers");
               image={speaker.image}
               name={speaker.name}
               github={speaker.github ?? "no-user"}
+              twitter={speaker.twitter ?? "no-user"}
+              youtube={speaker.youtube ?? "no-user"}
             />
           ))
       }

@@ -5,6 +5,8 @@ export interface ISpeaker {
   company: string;
   image: string;
   github: string;
+  twitter: string;
+  youtube: string;
   about: string;
   web: string;
   created_at: string;

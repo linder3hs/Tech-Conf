@@ -29,10 +29,10 @@ export default function Sponsors() {
           </div>
         ))}
       </div>
-
       <a
-        className="mt-28 bg-green-400 text-gray-200 font-bold p-5 rounded-full shadow-md text-xl"
-        href="https://wa.me/51967617166?text=Quiero%20ser%20un%20sponsor"
+        target="_blank"
+        className="mt-28 text-lg bg-yellow-300 border-solid border-black border-2 p-3 font-bold rounded-full w-44 block mx-auto text-center"
+        href="https://linderhassinger00.typeform.com/to/F64EamRc"
       >
         Sé un sponsor
       </a>

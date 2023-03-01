@@ -8,10 +8,12 @@ const speakers = await getDataFromTable("speakers");
 ---
 
 <Layout title="Speakers | Tech Conf">
-  <main class="mt-10 md:w-3/5">
-    <h1 class="font-bold text-5xl text-gray-800">Speakers 🎙️</h1>
+  <main class="mt-10">
+    <h1 class="font-bold text-5xl text-gray-800 md:ml-16 m-auto">
+      Speakers 🎙️
+    </h1>
     <div
-      class="mt-20 grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-28 items-center"
+      class="mt-10 grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-10 items-center"
     >
       {
         speakers?.length > 0 &&
@@ -20,6 +22,8 @@ const speakers = await getDataFromTable("speakers");
               image={speaker.image}
               name={speaker.name}
               github={speaker.github ?? "no-user"}
+              twitter={speaker.twitter ?? "no-user"}
+              youtube={speaker.youtube ?? "no-user"}
             />
           ))
       }

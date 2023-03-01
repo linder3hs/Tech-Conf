@@ -1,21 +1,41 @@
 ---
+import github_logo from "../../assets/github-white.svg";
+import twitter_logo from "../../assets/twitter-logo.svg";
+import yt_logo from "../../assets/yt-logo.svg";
+
 export interface Props {
   image: string;
   name: string;
   github: string;
+  youtube: string;
+  twitter: string;
 }
 
-const { image, name, github } = Astro.props;
+const { image, name, github, youtube, twitter } = Astro.props;
 ---
 
 <div
-  class="sm:flex sm:flex-col sm:items-center sm:justify-center text-center hover:scale-105 hover:cursor-pointer"
+  class="sm:flex sm:flex-col sm:items-center sm:justify-center text-center hover:scale-105 hover:cursor-pointer mt-10"
 >
   <a href={`speakers/${name.replaceAll(" ", "-")}`}>
     <img width="170" class="rounded sm:m-auto sm:flex" src={image} alt={name} />
   </a>
   <h2 class="text-lg mt-3 font-bold text-center">{name}</h2>
-  <a href={`https://github.com/${github}`} target="_blank">
-    <h5 class="text-sm font-semibold text-red-500 mt-1">@{github}</h5>
-  </a>
+  <div class="flex gap-5 mt-2 justify-center">
+    <div class="bg-cyan-500 p-1 rounded">
+      <a href={`https://twitter.com/${twitter}`} target="_blank">
+        <img src={twitter_logo} width="20" alt="" />
+      </a>
+    </div>
+    <div class="bg-gray-900 p-1 rounded">
+      <a href={`https://github.com/${github}`} target="_blank">
+        <img src={github_logo} width="20" height="20" alt={github} />
+      </a>
+    </div>
+    <div class="bg-red-600 p-1 rounded">
+      <a href={youtube} target="_blank">
+        <img src={yt_logo} width="20" alt="" />
+      </a>
+    </div>
+  </div>
 </div>
