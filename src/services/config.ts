@@ -2,7 +2,7 @@ import { createClient } from "@supabase/supabase-js";
 import * as Sentry from "@sentry/browser";
 
 interface ICondition {
-  value: string;
+  value: string | number | boolean;
   key: string;
 }
 

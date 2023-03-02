@@ -21,11 +21,11 @@ export default function Card(props: Props) {
   const handleGetTickets = async () => {
     const tickets = await getDataFromTable("tickets", {
       key: "event_id",
-      value: id,
+      value: Number(id),
     });
 
     if (!tickets) return;
-
+    
     setTickets(tickets.length);
   };
 
