@@ -30,8 +30,6 @@ Si quieres ser un sponsor de la conferencia, puedes completar el siguiente formu
 
 Actualmente tenemos los siguientes sponsors:
 
-<!-- table -->
-
 | Sponsor | Logo | Link |
 | :--- | :--- | :--- |
 | Tecsup | ![Tecsup](https://www.tecsup.edu.pe/themes/tecsup/logo.svg) | [Tecsup](https://www.tecsup.edu.pe/) |
