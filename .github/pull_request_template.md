@@ -1,4 +1,4 @@
-THIS PROJECT IS IN MAINTENANCE MODE. We accept pull requests for Bug Fixes **ONLY**. NO NEW FEATURES ACCEPTED!
+THIS PROJECT IS IN MAINTENANCE MODE. We accept pull requests for Bug, Fixes, Featured, Docs, Refactor, etc...
 
 <!--- Provide a general summary of your changes in the Title above -->
 
