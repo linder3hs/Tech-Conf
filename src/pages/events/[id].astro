@@ -7,17 +7,20 @@ export async function getStaticPaths() {
   const events = await getDataFromTable("events");
 
   return events.map((event: IEvent) => ({
-    params: { name: event.title.replaceAll(" ", "-") },
+    params: { id: event.id },
   }));
 }
 
-const { name } = Astro.params;
+const { id } = Astro.params;
 
-const title = name?.replaceAll("-", " ");
+const [event] = await getDataFromTable("events", {
+  key: "id",
+  value: Number(id),
+});
 ---
 
-<Layout title={`${title} | Tech Conf`}>
-  <div class="m-5">
-    <h1>{title}</h1>
-  </div>
+<Layout title={`${event.title} | Tech Conf`}>
+  <main class="h-screen">
+    <h1>⭐️ {event.title}</h1>
+  </main>
 </Layout>

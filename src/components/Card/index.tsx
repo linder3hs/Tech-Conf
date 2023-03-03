@@ -25,7 +25,7 @@ export default function Card(props: Props) {
     });
 
     if (!tickets) return;
-    
+
     setTickets(tickets.length);
   };
 
@@ -82,18 +82,25 @@ export default function Card(props: Props) {
   }, []);
 
   return (
-    <div className="bg-white p-6 border border-gray-200 rounded-lg shadow">
-      <h2 className="font-bold text-2xl h-16">{title ?? ""}</h2>
-      <p className="mt-5 h-20">{description}</p>
-      <p className="mt-10 text-blue-800 font-bold">{date}</p>
-      <div className="mt-10 flex items-center justify-between">
-        <a
-          href={`/events/${title.replaceAll(" ", "-")}`}
-          className="bg-red-500 text-white p-2 font-bold rounded-full px-5"
-        >
-          Ver detalle
-        </a>
-        {!isSubscribed ? (
+    <div className=" cursor-pointer mb-5 mt-10">
+      <div className="bg-white opacity-25 rounded-lg shadow-2xl"></div>
+      <div className="transform hover:skew-y-1 transition duration-300">
+        <div className="h-full w-full bg-white rounded-lg shadow-2xl">
+          <div className="bg-white p-14 border border-gray-200 rounded-lg shadow">
+            <h2 className="font-bold text-5xl h-16 text-center">
+              {title ?? ""}
+            </h2>
+            <p className="mt-5 h-20">{description}</p>
+            <p className="mt-10 text-blue-800 font-bold">{date}</p>
+
+            <div className="mt-10 flex items-center justify-between">
+              <a
+                href={`/events/${id}`}
+                className="bg-red-500 text-white p-2 font-bold rounded-full px-5"
+              >
+                Ver detalle
+              </a>
+              {/* {!isSubscribed ? (
           <button
             onClick={handleSubscribe}
             disabled={disabled}
@@ -108,11 +115,14 @@ export default function Card(props: Props) {
           >
             Ver Ticket
           </a>
-        )}
+        )} */}
 
-        <p>
-          {tickets} / {capacity}
-        </p>
+              <p>
+                {tickets} / {capacity}
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
