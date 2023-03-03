@@ -2,10 +2,15 @@
   background-image: url("../../assets/ticket-frame.svg");
   background-repeat: no-repeat;
   background-position: center;
-  width: 530px;
+  /* width: 530px; */
   margin: auto;
   margin-top: 20px;
+  transition: box-shadow 0.1s, transform 0.1s;
 }
+
+/* .bg-ticket:hover {
+  box-shadow: 0 0 50px rgba(0, 0, 0, 1);
+} */
 
 .ticket-content {
   width: 500px;

@@ -9,7 +9,7 @@ const events = (await getDataFromTable("events")) as IEvent[];
 
 <Layout title="Eventos | Tech Conf">
   <main class="mt-10 md:mx-16">
-    <h2 class="text-4xl">⭐️ Eventos</h2>
+    <h2 class="text-4xl hover:text-red-500">⭐️ Eventos</h2>
     <div class="mt-10 grid md:grid-cols-3 sm:grid-cols-1 gap-6">
       {
         events &&

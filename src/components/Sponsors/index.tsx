@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { getDataFromTable } from "../../services/config";
 import type { ISponsor } from "../../interfaces/sponsor";
+import PrimaryButton from "../PrimaryButton";
 
 export default function Sponsors() {
   const [sponsors, setSponsors] = useState<ISponsor[]>([]);
@@ -29,13 +30,10 @@ export default function Sponsors() {
           </div>
         ))}
       </div>
-      <a
-        target="_blank"
-        className="mt-28 text-lg bg-yellow-300 border-solid border-black border-2 p-3 font-bold rounded-full w-44 block mx-auto text-center"
-        href="https://linderhassinger00.typeform.com/to/F64EamRc"
-      >
-        Sé un sponsor
-      </a>
+      <PrimaryButton
+        text="Sé un sponsor"
+        url="https://linderhassinger00.typeform.com/to/F64EamRc"
+      />
     </div>
   );
 }

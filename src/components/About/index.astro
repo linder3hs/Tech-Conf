@@ -1,3 +1,7 @@
+---
+import PrimaryButton from "../PrimaryButton";
+---
+
 <div class="h-screen flex justify-center items-center">
   <div class="md:w-3/5">
     <h2 class="sm:mt-16 md:text-7xl lg:text-6xl font-extrabold text-center">
@@ -11,12 +15,8 @@
       y estar al tanto de las últimas tendencias y desarrollos en el mundo de la
       tecnología.
     </p>
-    <div class="text-center mt-16">
-      <a
-        href="/events"
-        class="text-lg bg-yellow-300 border-solid border-black border-2 p-3 font-bold rounded-full w-72 block mx-auto"
-        >Unirme</a
-      >
+    <div class="flex justify-center">
+      <PrimaryButton client:load text="Unirme" url="/events" />
     </div>
   </div>
 </div>

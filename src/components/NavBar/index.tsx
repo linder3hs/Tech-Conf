@@ -18,7 +18,7 @@ export default function Layout() {
   }, []);
 
   return (
-    <div>
+    <>
       <Disclosure as="nav" className="bg-gray-800 p-2">
         {({ open }) => (
           <>
@@ -83,6 +83,6 @@ export default function Layout() {
           </>
         )}
       </Disclosure>
-    </div>
+    </>
   );
 }
