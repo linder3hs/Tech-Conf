@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { getUser, signInWithGitHub } from "../../services/auth";
 import { getDataFromTable } from "../../services/config";
-import github from "../../assets/github-white.svg";
+import github from "../../assets/github-mark.svg";
 import type { User } from "../../interfaces/user";
 import type { ITickets } from "../../interfaces/tickets";
 import "./index.css";
