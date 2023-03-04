@@ -19,7 +19,7 @@ export default function Layout() {
 
   return (
     <>
-      <Disclosure as="nav" className="bg-gray-800 p-2">
+      <Disclosure as="nav" className="bg-gray-800 p-2 fixed w-full">
         {({ open }) => (
           <>
             <div className="mx-auto max-w-7xl px-6 sm:px-6 lg:px-8">
