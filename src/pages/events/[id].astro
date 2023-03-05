@@ -1,5 +1,5 @@
 ---
-import Layout from "../../layouts/Layout.astro";
+import EventFrame from "../../layouts/EventFrame.astro";
 import { getDataFromTable } from "../../services/config";
 import type { IEvent } from "../../interfaces/tickets";
 
@@ -19,8 +19,8 @@ const [event] = await getDataFromTable("events", {
 });
 ---
 
-<Layout title={`${event.title} | Tech Conf`}>
-  <main class="h-screen">
+<EventFrame title={`${event.title} | Tech Conf`}>
+  <main class="scene">
     <h1>⭐️ {event.title}</h1>
   </main>
-</Layout>
+</EventFrame>

@@ -1,7 +1,4 @@
 ---
-import NavBar from "../components/NavBar";
-import Footer from "../components/Footer/index.astro";
-
 export interface Props {
   title: string;
 }
@@ -10,12 +7,17 @@ const { title } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="/browser.png" />
-    <meta name="title" content="Tech Conf" />
     <meta
       name="description"
       content="Únete a nuestra comunidad y se parte de las mejores charlas de Tech. Encontraras invitados de todo latinoamerica donde nos contaran sus experiencias."
@@ -47,25 +49,16 @@ const { title } = Astro.props;
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
-    <title>{title}</title>
   </head>
   <body>
-    <NavBar client:load />
     <slot />
-    <div class="bg-gray-800 p-5 mt-20">
-      <Footer />
-    </div>
   </body>
 </html>
 <style is:global>
   html {
-    font-family: 'Poppins', sans-serif;
-    background-color: #f6f6f6;
+    font-family: "Poppins", sans-serif;
+    background-color: #000;
     scroll-behavior: smooth;
-  }
-
-  code {
-    font-family: 'Poppins', sans-serif;
   }
 
   main {
@@ -88,51 +81,68 @@ const { title } = Astro.props;
     font-weight: 800;
   }
 
-  .text-gradient {
-    background-image: var(--accent-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 400%;
-    background-position: 0%;
+  body {
+    background: #000;
+    color: #fff;
+    overflow: hidden;
+    background-blend-mode: screen;
   }
 
-  .instructions {
-    line-height: 1.6;
-    margin: 1rem 0;
-    border: 1px solid rgba(var(--accent), 25%);
-    background-color: white;
-    padding: 1rem;
-    border-radius: 0.4rem;
+  .scene {
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    perspective: 10vmin;
   }
 
-  .instructions code {
-    font-size: 0.875em;
-    font-weight: bold;
-    background: rgba(var(--accent), 12%);
-    color: rgb(var(--accent));
-    border-radius: 4px;
-    padding: 0.3em 0.45em;
+  .scene div {
+    width: 0.5vmin;
+    height: 0.5vmin;
+    transform: translateZ(-100vmin) rotateY(90deg) rotateX(var(--rx))
+      translateZ(var(--x)) scaleX(1);
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    animation: animate 1.5s 2 ease-in;
+    background: #fff;
+    box-shadow: 0 0 10px rgb(10, 239, 255);
   }
 
-  .instructions strong {
-    color: rgb(var(--accent));
-  }
-
-  .link-card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-    gap: 1rem;
-    padding: 0;
-  }
-
-  img,
-  svg,
-  video,
-  canvas,
-  audio,
-  iframe,
-  embed,
-  object {
-    display: inline;
+  @keyframes animate {
+    0%,
+    90% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translateZ(0vmin) rotateY(90deg) rotateX(var(--rx))
+        translateZ(var(--x)) scaleX(6);
+    }
   }
 </style>
+<script is:raw>
+  const scene = document.querySelector(".scene");
+
+  const createDiv = () => {
+    for (let i = 0; i < 810; i++) {
+      scene.innerHTML += "<div></div>";
+    }
+  };
+
+  createDiv();
+
+  const stars = document.querySelectorAll("div");
+
+  stars.forEach((star) => {
+    let x = `${Math.random() * 600}vmax`;
+    let y = `${Math.random() * 100}vh`;
+    let z = `${Math.random() * 200 - 100}vmin`;
+    let rx = `${Math.random() * 360}deg`;
+    star.style.setProperty("--x", x);
+    star.style.setProperty("--y", y);
+    star.style.setProperty("--z", z);
+    star.style.setProperty("--rx", rx);
+    let delay = `${Math.random() * 1.5}s`;
+    star.style.animationDelay = delay;
+  });
+</script>
