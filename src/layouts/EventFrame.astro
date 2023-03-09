@@ -103,7 +103,7 @@ const { title } = Astro.props;
     position: absolute;
     top: 0%;
     left: 0%;
-    animation: animate 1.5s 2 ease-in;
+    animation: animate 3s 1 ease-in;
     background: #fff;
     box-shadow: 0 0 10px rgb(10, 239, 255);
   }
@@ -124,7 +124,7 @@ const { title } = Astro.props;
   const scene = document.querySelector(".scene");
 
   const createDiv = () => {
-    for (let i = 0; i < 810; i++) {
+    for (let i = 0; i < 300; i++) {
       scene.innerHTML += "<div></div>";
     }
   };
@@ -134,15 +134,18 @@ const { title } = Astro.props;
   const stars = document.querySelectorAll("div");
 
   stars.forEach((star) => {
-    let x = `${Math.random() * 600}vmax`;
-    let y = `${Math.random() * 100}vh`;
-    let z = `${Math.random() * 200 - 100}vmin`;
-    let rx = `${Math.random() * 360}deg`;
+    const x = `${Math.random() * 600}vmax`;
+    const y = `${Math.random() * 100}vh`;
+    const z = `${Math.random() * 200}vmin`;
+    const rx = `${Math.random() * 360}deg`;
+
     star.style.setProperty("--x", x);
     star.style.setProperty("--y", y);
     star.style.setProperty("--z", z);
     star.style.setProperty("--rx", rx);
-    let delay = `${Math.random() * 1.5}s`;
+
+    const delay = `${Math.random() * 3}s`;
+
     star.style.animationDelay = delay;
   });
 </script>

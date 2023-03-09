@@ -1,85 +1,7 @@
-import { useState, useEffect } from "react";
-import { getUser } from "../../services/auth";
-import {
-  insertDataIntoTable,
-  getTicketRecord,
-  getDataFromTable,
-} from "../../services/config";
-import Swal from "sweetalert2";
-import type { User } from "../../interfaces/user";
 import type { Props } from "./types";
 
 export default function Card(props: Props) {
-  const { title, description, date, capacity, id } = props;
-
-  const [isSubscribed, setIsSubscribed] = useState(true);
-
-  const [tickets, setTickets] = useState(0);
-
-  const [disabled, setDisabled] = useState(true);
-
-  const handleGetTickets = async () => {
-    const tickets = await getDataFromTable("tickets", {
-      key: "event_id",
-      value: Number(id),
-    });
-
-    if (!tickets) return;
-
-    setTickets(tickets.length);
-  };
-
-  const handleIsSubscribed = async () => {
-    const user = (await getUser()) as User | null;
-
-    if (!user) return;
-
-    const { length } = await getTicketRecord(id, user.id);
-
-    if (length) return;
-    setDisabled(false);
-    setIsSubscribed(false);
-  };
-
-  const handleSubscribe = async () => {
-    const user = (await getUser()) as User | null;
-
-    if (!user) return;
-
-    setDisabled(true);
-
-    const response = await insertDataIntoTable("tickets", {
-      user_id: user.id,
-      event_id: id,
-    });
-
-    if (!response) {
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Algo salió mal, intentalo de nuevo",
-      });
-
-      return;
-    }
-
-    setIsSubscribed(true);
-    handleGetTickets();
-
-    Swal.fire({
-      icon: "success",
-      title: "¡Genial!",
-      text: "Te has inscrito al evento",
-    });
-  };
-
-  useEffect(() => {
-    handleIsSubscribed();
-  }, []);
-
-  useEffect(() => {
-    handleGetTickets();
-  }, []);
+  const { title, description, date, id } = props;
 
   return (
     <div className=" cursor-pointer mb-5 mt-10">
@@ -100,26 +22,6 @@ export default function Card(props: Props) {
               >
                 Ver detalle
               </a>
-              {/* {!isSubscribed ? (
-          <button
-            onClick={handleSubscribe}
-            disabled={disabled}
-            className="bg-yellow-300 border-solid border-black border-2 p-2 font-bold rounded-full px-5"
-          >
-            Iscribirme
-          </button>
-        ) : (
-          <a
-            href="/tickets"
-            className="bg-gray-800 text-white p-2 font-bold rounded-full px-5"
-          >
-            Ver Ticket
-          </a>
-        )} */}
-
-              <p>
-                {tickets} / {capacity}
-              </p>
             </div>
           </div>
         </div>
