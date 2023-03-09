@@ -2,6 +2,8 @@
 import EventFrame from "../../layouts/EventFrame.astro";
 import { getDataFromTable } from "../../services/config";
 import type { IEvent } from "../../interfaces/tickets";
+import TimerCountdown from "../../components/TimerCountdown/index.astro";
+import GetTicket from "../../components/GetTicket";
 
 export async function getStaticPaths() {
   const events = await getDataFromTable("events");
@@ -20,7 +22,17 @@ const [event] = await getDataFromTable("events", {
 ---
 
 <EventFrame title={`${event.title} | Tech Conf`}>
-  <main class="scene">
-    <h1>⭐️ {event.title}</h1>
+  <main class="scene lg:mt-20 md:m-auto">
+    <section class="lg:w-3/4 sm:w-80 m-auto text-center">
+      <h1 class="sm:text-xl md:text-3xl lg:text-8xl mt-10">
+        ⭐️ {event.title}
+      </h1>
+      <h2 class="lg:text-3xl sm:text-sm font-medium text-yellow-500 mt-10">
+        {event.description}
+      </h2>
+      <p class="text-4xl mt-10 font-bold">{event.date}</p>
+      <TimerCountdown />
+      <GetTicket client:load id={event.id} />
+    </section>
   </main>
 </EventFrame>

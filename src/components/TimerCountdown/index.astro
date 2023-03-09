@@ -1,0 +1,75 @@
+---
+---
+
+<section class="flex gap-10 mt-10 text-center justify-center">
+  <section>
+    <h1 id="days"></h1>
+    <p>Días</p>
+  </section>
+  <section>
+    <h1 id="hours"></h1>
+    <p>Horas</p>
+  </section>
+  <section>
+    <h1 id="minutes"></h1>
+    <p>Minutos</p>
+  </section>
+  <section>
+    <h1 id="seconds"></h1>
+    <p>Segundos</p>
+  </section>
+</section>
+
+<script>
+  (function () {
+    const second = 1000;
+    const minute = second * 60;
+    const hour = minute * 60;
+    const day = hour * 24;
+
+    let today: string | Date = new Date();
+    let dd = String(today.getDate()).padStart(2, "0");
+    let mm = String(today.getMonth() + 1).padStart(2, "0");
+    let year = today.getFullYear();
+
+    let dayMonth = "05/12/";
+    let birthday = dayMonth + year;
+
+    today = `${mm}/${dd}/${year}`;
+
+    if (today > birthday) birthday = dayMonth + year;
+
+    const countDown = new Date(birthday).getTime(),
+      _ = setInterval(function () {
+        const now = new Date().getTime();
+        const distance = countDown - now;
+
+        const dayElement = document.querySelector("#days");
+        const hourElement = document.querySelector("#hours");
+        const minuteElement = document.querySelector("#minutes");
+        const secondElement = document.querySelector("#seconds");
+
+        if (dayElement) {
+          dayElement.textContent = Math.floor(distance / day).toString();
+        }
+
+        if (hourElement) {
+          hourElement.textContent = Math.floor(
+            (distance % day) / hour
+          ).toString();
+        }
+
+        if (minuteElement) {
+          minuteElement.textContent = Math.floor(
+            (distance % hour) / minute
+          ).toString();
+        }
+
+        if (secondElement) {
+          secondElement.textContent = Math.floor(
+            (distance % minute) / second
+          ).toString();
+        }
+      }, 0);
+  })();
+</script>

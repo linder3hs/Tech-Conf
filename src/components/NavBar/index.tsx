@@ -13,9 +13,7 @@ export default function Layout() {
     if (currentName) setCurrent(currentName.name);
   };
 
-  useEffect(() => {
-    handleCurrent();
-  }, []);
+  useEffect(() => handleCurrent(), []);
 
   return (
     <>
