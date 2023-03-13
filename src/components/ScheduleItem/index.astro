@@ -1,0 +1,21 @@
+---
+interface Props {
+  title: string;
+  speaker: string;
+  time: string;
+}
+
+const { title, speaker, time } = Astro.props;
+---
+
+<section
+  class="flex border justify-center items-center gap-10 text-left w-2/4 m-auto p-10 rounded-lg hover:scale-110 transition-all duration-500 bg-neutral-900 mb-10"
+>
+  <section>
+    <h5 class="text-3xl font-semibold">{time}</h5>
+  </section>
+  <section>
+    <h3 class="text-yellow-400">{title}</h3>
+    <p>{speaker}</p>
+  </section>
+</section>

@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { signInWithGitHub, getUser } from "../../services/auth";
 import { insertDataIntoTable, getTicketRecord } from "../../services/config";
 import type { User } from "../../interfaces/user";
@@ -42,7 +43,7 @@ export default function GetTicket(props: Props) {
 
     if (!response) {
       Swal.fire({
-        icon: "error",
+        icon: "success",
         title: "Oops...",
         text: "Algo salió mal, intentalo de nuevo",
       });
@@ -59,12 +60,12 @@ export default function GetTicket(props: Props) {
 
   return (
     <>
-      <button
-        onClick={handleSubscribe}
-        className="mt-10 bg-yellow-500 p-3 font-medium text-black border-black border-2 rounded-md hover:scale-125 hover:duration-300"
-      >
-        Consigue tu ticket
-      </button>
+        <button
+          onClick={handleSubscribe}
+          className="mt-10 bg-yellow-500 p-3 font-medium text-black border-black border-2 rounded-md hover:scale-125 hover:duration-300"
+        >
+          Consigue tu ticket
+        </button>
     </>
   );
 }
