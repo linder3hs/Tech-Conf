@@ -25,7 +25,7 @@ export const schedule = [
     speaker: "Bruno Díaz",
   },
   {
-    title: "La educación en el futuro, es el software?",
+    title: "La eduación a través de los bootcamp - CodiGO",
     time: "15:30",
     speaker: "Daniel de la Cruz",
   },
