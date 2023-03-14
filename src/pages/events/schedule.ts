@@ -6,18 +6,18 @@ export const schedule = [
   },
   {
     title: "Aplicaciones Cloud en soluciones a medida - AWS | Azure",
-    time: "12:40",
+    time: "12:25",
     speaker: "Luis Cruz",
   },
   {
     title: "Almuerzo",
-    time: "13:15",
+    time: "13:05",
     speaker: "",
   },
   {
-    title: "Aplicando JetPack Compose en Android - Es el futuro?",
+    title: "ITIL aplicado a las empresas Tech - Tecsup",
     time: "14:10",
-    speaker: "Armando Picón",
+    speaker: "Jaime Gomez",
   },
   {
     title: "El software aplicado al empredimiento",
@@ -35,9 +35,9 @@ export const schedule = [
     speaker: "Victor Saico",
   },
   {
-    title: "",
+    title: "Aplicando JetPack Compose en Android - Es el futuro?",
     time: "16:50",
-    speaker: "Jaime Gomez",
+    speaker: "Armando Picón",
   },
   {
     title: "Cierre",
