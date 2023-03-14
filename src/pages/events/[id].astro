@@ -35,9 +35,17 @@ const [event] = await getDataFromTable("events", {
         >
           {event.description}
         </h2>
-        <p class="lg:text-6xl md:text-3xl sm:text-3xl mt-10 font-extrabold">{event.date}</p>
+        <p class="lg:text-6xl md:text-3xl sm:text-3xl mt-10 font-extrabold">
+          {event.date}
+        </p>
         <article class="mt-10 bg-purple-700 lg:w-1/3 m-auto p-1 rounded-xl">
-          <h4 class="font-bold text-xl">Streaming en <a class="text-yellow-400" href="https://www.twitch.tv/linder3hs">twitch.tv/linder3hs</a></h4>
+          <h4 class="font-bold text-lg">
+            Streaming en
+            <a
+              class="text-yellow-400"
+              target="_blank"
+              href="https://www.twitch.tv/linder3hs">twitch.tv/linder3hs</a>
+          </h4>
         </article>
         <TimerCountdown />
         <GetTicket client:load id={event.id} />

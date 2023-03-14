@@ -30,12 +30,12 @@ export const schedule = [
     speaker: "Daniel de la Cruz",
   },
   {
-    title: "Android, el futuro de la tecnología móvil",
+    title: "Marco de trabajado aplicado al código fuente (Git-Flow)",
     time: "16:10",
     speaker: "Victor Saico",
   },
   {
-    title: "SCRUM, el futuro de la gestión de proyectos",
+    title: "",
     time: "16:50",
     speaker: "Jaime Gomez",
   },
