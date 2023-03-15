@@ -16,6 +16,6 @@ const { title, speaker, time } = Astro.props;
   </section>
   <section>
     <h3 class="text-yellow-400">{title}</h3>
-    <p>{speaker}</p>
+    <a target="_blank" class="hover:text-purple-600" href={`speakers/${speaker.replaceAll(" ", "-")}`}>{speaker}</a>
   </section>
 </section>

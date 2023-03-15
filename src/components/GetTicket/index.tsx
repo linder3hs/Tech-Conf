@@ -29,7 +29,7 @@ export default function GetTicket(props: Props) {
 
     if (isSubscribed) {
       Swal.fire({
-        icon: "error",
+        icon: "warning",
         title: "Oops...",
         text: "Ya te has inscrito a este evento",
       });
@@ -60,12 +60,13 @@ export default function GetTicket(props: Props) {
 
   return (
     <>
-        <button
-          onClick={handleSubscribe}
-          className="mt-10 bg-yellow-500 p-3 font-medium text-black border-black border-2 rounded-md hover:scale-125 hover:duration-300"
-        >
-          Consigue tu ticket
-        </button>
+      <button
+        onClick={handleSubscribe}
+        className="mt-10 bg-yellow-500 p-3 font-medium text-black border-black border-2 rounded-md hover:scale-125 hover:duration-300"
+      >
+        Consigue tu ticket!
+      </button>
+      <p className="mt-2">Es gratis!</p>
     </>
   );
 }

@@ -42,6 +42,6 @@ export const schedule = [
   {
     title: "Cierre",
     time: "17:30",
-    speaker: "Linder Hassinger",
+    speaker: "Linder Hassinger - Victor Saico",
   },
 ];

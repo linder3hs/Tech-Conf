@@ -29,6 +29,7 @@ export async function getUser() {
   const { data, error } = await supabase.auth.getUser();
 
   if (error) {
+    console.log(error);
     Sentry.captureException(error);
     return null;
   }

@@ -1,10 +1,10 @@
 ---
-import EventFrame from "../../layouts/EventFrame.astro";
-import { getDataFromTable } from "../../services/config";
-import type { IEvent } from "../../interfaces/tickets";
-import TimerCountdown from "../../components/TimerCountdown/index.astro";
-import GetTicket from "../../components/GetTicket";
-import ScheduleItem from "../../components/ScheduleItem/index.astro";
+import EventFrame from "@layouts/EventFrame.astro";
+import { getDataFromTable } from "@services/config";
+import type { IEvent } from "@interfaces/tickets";
+import TimerCountdown from "@components/TimerCountdown/index.astro";
+import ScheduleItem from "@components/ScheduleItem/index.astro";
+import { GetTicket, Ticket } from "@componentsReact";
 import { schedule } from "./schedule";
 
 export async function getStaticPaths() {
@@ -39,12 +39,13 @@ const [event] = await getDataFromTable("events", {
           {event.date}
         </p>
         <article class="mt-10 bg-purple-700 lg:w-1/3 m-auto p-1 rounded-xl">
-          <h4 class="font-bold text-lg">
+          <h4 class="font-semibold text-lg">
             Streaming en
             <a
               class="text-yellow-400"
               target="_blank"
-              href="https://www.twitch.tv/linder3hs">twitch.tv/linder3hs</a>
+              href="https://www.twitch.tv/linder3hs">twitch.tv/linder3hs</a
+            >
           </h4>
         </article>
         <TimerCountdown />
@@ -59,6 +60,14 @@ const [event] = await getDataFromTable("events", {
             ))
           }
         </section>
+      </section>
+      <!-- <section>
+        <Ticket client:visible />
+      </section> -->
+      <section class="mb-10 mt-5">
+        <a href="/code-of-conduct" class="underline hover:text-yellow-400"
+          >Código de condúcta</a
+        >
       </section>
     </section>
   </main>

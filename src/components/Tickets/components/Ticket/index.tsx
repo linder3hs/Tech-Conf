@@ -19,7 +19,7 @@ export default function Ticket(props: Props) {
   }, []);
 
   return (
-    <div key={ticket.id} className="mt-10 bg-ticket">
+    <div className="mt-10 bg-ticket">
       <div className="ticket-content">
         <div className="flex gap-5 mt-10">
           <div>
