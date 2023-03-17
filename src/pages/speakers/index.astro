@@ -1,8 +1,8 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import Speaker from "../../components/Speaker/index.astro";
-import { getDataFromTable } from "../../services/config";
-import type { ISpeaker } from "../../interfaces/speaker";
+import Layout from "@layouts/Layout.astro";
+import Speaker from "@components/Speaker/index.astro";
+import { getDataFromTable } from "@services/config";
+import type { ISpeaker } from "@interfaces/speaker";
 
 const speakers = await getDataFromTable("speakers");
 ---

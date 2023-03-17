@@ -2,6 +2,7 @@
 import EventFrame from "@layouts/EventFrame.astro";
 import { getDataFromTable } from "@services/config";
 import type { IEvent } from "@interfaces/tickets";
+import type { ISpeaker } from "@interfaces/speaker";
 import TimerCountdown from "@components/TimerCountdown/index.astro";
 import ScheduleItem from "@components/ScheduleItem/index.astro";
 import { GetTicket, Ticket } from "@componentsReact";
@@ -21,11 +22,13 @@ const [event] = await getDataFromTable("events", {
   key: "id",
   value: Number(id),
 });
+
+const speakers = await getDataFromTable("speakers");
 ---
 
 <EventFrame title={`${event.title} | Tech Conf`}>
-  <main class="scene lg:mt-10 lg:m-auto">
-    <section class="lg:w-3/4 sm:w-screen m-auto text-center">
+  <main class="scene lg:m-auto">
+    <section class="lg:w-3/4 sm:w-screen m-auto text-center mt-28">
       <section>
         <h1 class="sm:text-xl md:text-3xl lg:text-8xl mt-10">
           ⭐️ {event.title}
@@ -51,7 +54,7 @@ const [event] = await getDataFromTable("events", {
         <TimerCountdown />
         <GetTicket client:load id={event.id} />
       </section>
-      <section>
+      <section id="schedule">
         <h2 class="mt-10 text-4xl">Calendario</h2>
         <section class="mt-10">
           {
@@ -64,11 +67,44 @@ const [event] = await getDataFromTable("events", {
       <!-- <section>
         <Ticket client:visible />
       </section> -->
-      <section class="mb-10 mt-5">
-        <a href="/code-of-conduct" class="underline hover:text-yellow-400"
-          >Código de condúcta</a
-        >
+      <div id="speakers">
+        <h2 class="mt-10 text-4xl">Speakers</h2>
+      </div>
+      <section class="grid grid-cols-2">
+        {
+          speakers.map((speaker: ISpeaker) => (
+            <>
+              {speaker.id !== 4 && (
+                <div class="mt-10 text-center">
+                  <img
+                    src={speaker.image}
+                    width="200"
+                    class="rounded-full m-auto mb-10"
+                    alt={speaker.name}
+                  />
+                  <h2 class="text-3xl hover:text-yellow-400">
+                    <a href={`/speakers/${speaker.name.replaceAll(" ", "-")}`}>
+                      {speaker.name}
+                    </a>
+                  </h2>
+                </div>
+              )}
+            </>
+          ))
+        }
       </section>
     </section>
   </main>
+  <footer class="m-20">
+    <p class="text-center text-gray-500 text-sm">
+      Made by
+      <a
+        class="text-yellow-400"
+        href="https://linderhassinger.info"
+        target="_blank"
+      >
+        Linder Hassinger</a
+      >
+    </p>
+  </footer>
 </EventFrame>

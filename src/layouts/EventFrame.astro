@@ -64,6 +64,27 @@ const { title } = Astro.props;
     </script>
   </head>
   <body>
+    <header>
+      <nav class="p-10 fixed w-screen">
+        <ul class="flex gap-10 lg:flex-col lg:pr-20 lg:items-end z-10">
+          <li>
+            <a href="#schedule" class="hover:text-yellow-400 text-lg"
+              >Calendario</a
+            >
+          </li>
+          <li>
+            <a href="#speakers" class="hover:text-yellow-400 text-lg"
+              >Speakers</a
+            >
+          </li>
+          <li>
+            <a href="/#sponsors" class="hover:text-yellow-400 text-lg"
+              >Sponsors</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
     <slot />
   </body>
 </html>
