@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { getDataFromTable } from "../../services/config";
-import type { ISponsor } from "../../interfaces/sponsor";
+import { getDataFromTable } from "@services/config";
+import type { ISponsor } from "@interfaces/sponsor";
 import PrimaryButton from "../PrimaryButton";
 
 export default function Sponsors() {

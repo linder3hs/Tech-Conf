@@ -1,12 +1,12 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Home from "../components/Home/Home.astro";
-import About from "../components/About/index.astro";
-import Sponsors from "../components/Sponsors";
-import How from "../components/How/index.astro";
-import Speaker from "../components/Speaker/index.astro";
-import type { ISpeaker } from "../interfaces/speaker";
-import { getDataFromTable } from "../services/config";
+import Layout from "@layouts/Layout.astro";
+import { Sponsors } from "@componentsReact";
+import Home from "@components/Home/Home.astro";
+import About from "@components/About/index.astro";
+import How from "@components/How/index.astro";
+import Speaker from "@components/Speaker/index.astro";
+import type { ISpeaker } from "@interfaces/speaker";
+import { getDataFromTable } from "@services/config";
 
 const speakers = await getDataFromTable("speakers");
 ---

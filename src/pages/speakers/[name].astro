@@ -1,7 +1,7 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import { getDataFromTable } from "../../services/config";
-import type { ISpeaker } from "../../interfaces/speaker";
+import Layout from "@layouts/Layout.astro";
+import { getDataFromTable } from "@services/config";
+import type { ISpeaker } from "@interfaces/speaker";
 
 export async function getStaticPaths() {
   const speakers = await getDataFromTable("speakers");
@@ -28,7 +28,7 @@ const {
 } = speaker[0] as ISpeaker;
 ---
 
-<Layout title={`${name} | Tech Conf`}>
+<Layout title={`${fullname} | Tech Conf`}>
   <div
     class="flex sm:flex-col-reverse lg:flex-row items-center justify-evenly h-screen -mt-24 m-5"
   >

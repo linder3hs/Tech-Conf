@@ -1,8 +1,8 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import Card from "../../components/Card/index";
-import { getDataFromTable } from "../../services/config";
-import type { IEvent } from "../../interfaces/tickets";
+import Layout from "@layouts/Layout.astro";
+import Card from "@components/Card/index";
+import { getDataFromTable } from "@services/config";
+import type { IEvent } from "@interfaces/tickets";
 
 const events = (await getDataFromTable("events")) as IEvent[];
 ---

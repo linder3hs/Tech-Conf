@@ -1,4 +1,4 @@
-import { signInWithGitHub } from "../../services/auth";
+import { signInWithGitHub } from "@services/auth";
 
 export default function SignUp() {
   return (

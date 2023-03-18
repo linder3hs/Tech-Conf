@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { getUser, signout } from "../../services/auth";
-import type { User } from "../../interfaces/user";
+import { getUser, signout } from "@services/auth";
+import type { User } from "@interfaces/user";
 
 export default function Profile() {
   const [user, setUser] = useState<User | null>(null);

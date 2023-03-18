@@ -1,7 +1,6 @@
-import { useState, useEffect } from "react";
-import { signInWithGitHub, getUser } from "../../services/auth";
-import { insertDataIntoTable, getTicketRecord } from "../../services/config";
-import type { User } from "../../interfaces/user";
+import { signInWithGitHub, getUser } from "@services/auth";
+import { insertDataIntoTable, getTicketRecord } from "@services/config";
+import type { User } from "@interfaces/user";
 import Swal from "sweetalert2";
 
 interface Props {

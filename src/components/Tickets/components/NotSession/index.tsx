@@ -1,5 +1,5 @@
-import github from "../../../../assets/github-mark.svg";
-import { signInWithGitHub } from "../../../../services/auth";
+import github from "@assets/github-mark.svg";
+import { signInWithGitHub } from "@services/auth";
 
 export default function NoSession() {
   const fetchLogin = async () => await signInWithGitHub();
