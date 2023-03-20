@@ -7,10 +7,25 @@
   transition: box-shadow 0.1s, transform 0.1s;
 }
 
+.bg-miduticket {
+  background-image: url("../../assets/midufest.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: box-shadow 0.1s, transform 0.1s;
+}
+
 .ticket-content {
   width: 500px;
   margin: auto;
   padding: 20px;
+}
+
+.ticket-midufest {
+  width: 500px;
+  margin: auto;
+  padding: 90px;
+  /* rotate 270 grades */
+  transform: rotate(-10deg);
 }
 
 /* media query mobile */

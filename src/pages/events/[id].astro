@@ -52,7 +52,9 @@ const speakers = await getDataFromTable("speakers");
           </h4>
         </article>
         <TimerCountdown />
-        <GetTicket client:load id={event.id} />
+        <section class="my-10">
+          <Ticket client:visible id={event.id} />
+        </section>
       </section>
       <section id="schedule">
         <h2 class="mt-10 text-4xl">Calendario</h2>
@@ -64,9 +66,6 @@ const speakers = await getDataFromTable("speakers");
           }
         </section>
       </section>
-      <!-- <section>
-        <Ticket client:visible />
-      </section> -->
       <div id="speakers">
         <h2 class="mt-10 text-4xl">Speakers</h2>
       </div>

@@ -1,48 +1,56 @@
 import { useState, useEffect } from "react";
 import type { User } from "@interfaces/user";
-import github from "@assets/github-mark.svg";
+import { getDataFromTable } from "@services/config";
 import { getUser } from "@services/auth";
+import { GetTicket } from "..";
 
-export default function Ticket() {
-  const [user, setUser] = useState<User | null>(null);
+export default function Ticket({ id }: { id: number }) {
+  const [isRegistered, setIsRegistered] = useState<boolean>(false);
+
+  const [countTickets, setCountTickets] = useState<number>(0);
 
   const fetchUser = async () => {
     const user = (await getUser()) as User | null;
-    console.log(user);
-    setUser(user);
+
+    const tickets = await getDataFromTable(
+      "tickets",
+      {
+        key: "user_id",
+        value: String(user?.id),
+      },
+      `*, events(*)`
+    );
+
+    setIsRegistered(tickets.length > 0);
+  };
+
+  const fetctTickets = async () => {
+    const tickets = await getDataFromTable("tickets");
+    setCountTickets(tickets.length);
   };
 
   useEffect(() => {
     fetchUser();
   }, []);
 
+  useEffect(() => {
+    fetctTickets();
+  }, []);
+
   return (
     <>
-      <div className="mt-10 bg-ticket w-2/6">
-        <div className="ticket-content">
-          <div className="flex flex-col gap-5">
-            <div>
-              <h1 className="text-black font-extrabold sm:text-sm lg:text-4xl">
-                Tech Conf
-              </h1>
-              <img
-                width={52}
-                height={52}
-                className="rounded-full"
-                src={user?.user_metadata.avatar_url}
-                alt=""
-              />
-            </div>
-            <div>
-              <p className="font-extrabold">{user?.user_metadata.name}</p>
-              <p className="text-gray-500 flex mt-3 items-center gap-3">
-                <img className="w-5 h-5" src={github} alt="" />
-                {user?.user_metadata.user_name}
-              </p>
-            </div>
+      {isRegistered ? (
+        <div className="bg-miduticket">
+          <div className="ticket-midufest text-center m-10">
+            <h1>#{String(countTickets).padStart(5, "0")}</h1>
+            <p className="text-yellow-400 font-semibold italic">
+              tickets registrados
+            </p>
           </div>
         </div>
-      </div>
+      ) : (
+        <GetTicket id={id} />
+      )}
     </>
   );
 }
