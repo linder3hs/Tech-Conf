@@ -50,11 +50,7 @@ export default function GetTicket(props: Props) {
       return;
     }
 
-    Swal.fire({
-      icon: "success",
-      title: "¡Genial!",
-      text: "Te has inscrito al evento",
-    });
+    window.location.reload();
   };
 
   return (
