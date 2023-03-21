@@ -63,10 +63,12 @@ const { title } = Astro.props;
       });
     </script>
   </head>
-  <body>
+  <body class="bg-neutral-900 max-w-full">
     <header>
-      <nav class="p-10 fixed w-screen">
-        <ul class="flex gap-10 lg:flex-col lg:pr-20 lg:items-end z-10">
+      <nav
+        class="p-6 fixed w-full z-20 lg:bg-neutral-900"
+      >
+        <ul class="flex gap-10">
           <li>
             <a href="#schedule" class="hover:text-yellow-400 text-lg"
               >Calendario</a
@@ -92,7 +94,7 @@ const { title } = Astro.props;
 <style is:global>
   html {
     font-family: "Poppins", sans-serif;
-    background-color: #000;
+    /* background-color: #000; */
     scroll-behavior: smooth;
   }
 
@@ -117,7 +119,6 @@ const { title } = Astro.props;
   }
 
   body {
-    background: #000;
     color: #fff;
     background-blend-mode: screen;
   }

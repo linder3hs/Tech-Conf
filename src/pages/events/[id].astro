@@ -27,10 +27,10 @@ const speakers = await getDataFromTable("speakers");
 ---
 
 <EventFrame title={`${event.title} | Tech Conf`}>
-  <main class="scene lg:m-auto">
+  <main class="lg:m-auto">
     <section class="lg:w-3/4 sm:w-screen m-auto text-center mt-28">
       <section>
-        <h1 class="sm:text-xl md:text-3xl lg:text-8xl mt-10">
+        <h1 class="text-3xl md:text-3xl lg:text-8xl">
           ⭐️ {event.title}
         </h1>
         <h2
@@ -41,7 +41,7 @@ const speakers = await getDataFromTable("speakers");
         <p class="lg:text-6xl md:text-3xl sm:text-3xl mt-10 font-extrabold">
           {event.date}
         </p>
-        <article class="mt-10 bg-purple-700 lg:w-1/3 m-auto p-1 rounded-xl">
+        <article class="mt-10 bg-purple-700 w-full lg:w-1/3 m-auto p-1 rounded-xl">
           <h4 class="font-semibold text-lg">
             Streaming en
             <a
