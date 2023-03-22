@@ -28,16 +28,16 @@ const speakers = await getDataFromTable("speakers");
 
 <EventFrame title={`${event.title} | Tech Conf`}>
   <main class="lg:m-auto">
-    <section class="lg:w-3/4 sm:w-screen m-auto text-center mt-28">
+    <section class="lg:w-3/4 sm:w-screen m-auto text-center mt-5 lg:mt-10">
       <section>
         <h1 class="text-3xl md:text-3xl lg:text-8xl">
           ⭐️ {event.title}
         </h1>
-        <h2
+        <h22
           class="lg:text-3xl lg:w-1/2 m-auto sm:text-sm font-medium text-yellow-500 mt-10"
         >
           {event.description}
-        </h2>
+        </h22>
         <p class="lg:text-6xl md:text-3xl sm:text-3xl mt-10 font-extrabold">
           {event.date}
         </p>

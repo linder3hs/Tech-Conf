@@ -1,4 +1,6 @@
 ---
+import EventNavBar from "../components/EventNavBar";
+
 export interface Props {
   title: string;
 }
@@ -64,29 +66,7 @@ const { title } = Astro.props;
     </script>
   </head>
   <body class="bg-neutral-900 max-w-full">
-    <header>
-      <nav
-        class="p-6 fixed w-full z-20 lg:bg-neutral-900"
-      >
-        <ul class="flex gap-10">
-          <li>
-            <a href="#schedule" class="hover:text-yellow-400 text-lg"
-              >Calendario</a
-            >
-          </li>
-          <li>
-            <a href="#speakers" class="hover:text-yellow-400 text-lg"
-              >Speakers</a
-            >
-          </li>
-          <li>
-            <a href="/#sponsors" class="hover:text-yellow-400 text-lg"
-              >Sponsors</a
-            >
-          </li>
-        </ul>
-      </nav>
-    </header>
+    <EventNavBar client:load />
     <slot />
   </body>
 </html>
