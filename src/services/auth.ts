@@ -1,9 +1,12 @@
 import supabase from "./config";
 import * as Sentry from "@sentry/browser";
 
-export async function signInWithGitHub() {
+export async function signInWithGitHub(url: string = "/") {
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: "github",
+    options: {
+      redirectTo: "http://localhost:3000/events/1",
+    },
   });
 
   if (error) {
@@ -29,7 +32,6 @@ export async function getUser() {
   const { data, error } = await supabase.auth.getUser();
 
   if (error) {
-    console.log(error);
     Sentry.captureException(error);
     return null;
   }

@@ -18,9 +18,11 @@ export default function GetTicket(props: Props) {
 
   const handleSubscribe = async () => {
     const user = (await getUser()) as User | null;
-
+    console.log("user", user);
     if (!user) {
-      signInWithGitHub();
+      const url = `${window.location.origin}/events/1`;
+      console.log(url);
+      signInWithGitHub(url);
       return;
     }
 
