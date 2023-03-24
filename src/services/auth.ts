@@ -1,11 +1,11 @@
 import supabase from "./config";
 import * as Sentry from "@sentry/browser";
 
-export async function signInWithGitHub(url: string = "/") {
+export async function signInWithGitHub(url: string = window.location.origin) {
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: "github",
     options: {
-      redirectTo: "http://localhost:3000/events/1",
+      redirectTo: url,
     },
   });
 
