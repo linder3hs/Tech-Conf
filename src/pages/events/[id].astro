@@ -3,9 +3,7 @@ import EventFrame from "@layouts/EventFrame.astro";
 import { getDataFromTable } from "@services/config";
 import type { IEvent } from "@interfaces/tickets";
 import type { ISpeaker } from "@interfaces/speaker";
-import TimerCountdown from "@components/TimerCountdown/index.astro";
-import ScheduleItem from "@components/ScheduleItem/index.astro";
-import { Ticket } from "@componentsReact";
+import { Event } from "@componentsReact";
 import { schedule } from "./schedule";
 
 export async function getStaticPaths() {
@@ -27,83 +25,10 @@ const speakers = await getDataFromTable("speakers");
 ---
 
 <EventFrame title={`${event.title} | Tech Conf`}>
-  <main class="lg:m-auto">
-    <section class="lg:w-3/4 sm:w-screen m-auto text-center mt-5 lg:mt-10">
-      <section>
-        <h1 class="text-3xl md:text-3xl lg:text-8xl">
-          ⭐️ {event.title}
-        </h1>
-        <h2
-          class="text-2xl lg:text-3xl lg:w-1/2 m-auto sm:text-sm font-medium text-yellow-500 mt-10"
-        >
-          {event.description}
-        </h2>
-        <p class="lg:text-4xl md:text-3xl sm:text-3xl mt-10 font-extrabold">
-          {event.date}
-        </p>
-        <article class="mt-10 bg-purple-700 w-full lg:w-1/3 m-auto p-1 rounded-xl">
-          <h4 class="font-semibold text-lg">
-            Streaming en
-            <a
-              class="text-yellow-400"
-              target="_blank"
-              href="https://www.twitch.tv/linder3hs">twitch.tv/linder3hs</a
-            >
-          </h4>
-        </article>
-        <TimerCountdown />
-        <section class="my-10">
-          <Ticket client:visible id={event.id} />
-        </section>
-      </section>
-      <section id="schedule">
-        <h2 class="mt-10 text-4xl">Calendario</h2>
-        <section class="mt-10">
-          {
-            schedule.map(({ title, time, speaker }) => (
-              <ScheduleItem time={time} title={title} speaker={speaker} />
-            ))
-          }
-        </section>
-      </section>
-      <div id="speakers">
-        <h2 class="mt-10 text-4xl">Speakers</h2>
-      </div>
-      <section class="grid grid-cols-1 lg:grid-cols-2">
-        {
-          speakers.map((speaker: ISpeaker) => (
-            <>
-              {speaker.id !== 4 && (
-                <div class="mt-10 text-center">
-                  <img
-                    src={speaker.image}
-                    width="200"
-                    class="rounded-full m-auto mb-10"
-                    alt={speaker.name}
-                  />
-                  <h2 class="text-3xl hover:text-yellow-400">
-                    <a href={`/speakers/${speaker.name.replaceAll(" ", "-")}`}>
-                      {speaker.name}
-                    </a>
-                  </h2>
-                </div>
-              )}
-            </>
-          ))
-        }
-      </section>
-    </section>
-  </main>
-  <footer class="m-20">
-    <p class="text-center text-gray-500 text-sm">
-      Made by
-      <a
-        class="text-yellow-400"
-        href="https://linderhassinger.info"
-        target="_blank"
-      >
-        Linder Hassinger</a
-      >
-    </p>
-  </footer>
+  <Event
+    client:load
+    event={event as IEvent}
+    speakers={speakers as ISpeaker[]}
+    schedule={schedule}
+  />
 </EventFrame>

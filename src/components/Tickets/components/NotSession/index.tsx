@@ -1,4 +1,4 @@
-import github from "@assets/github-mark.svg";
+import github from "@assets/github-white.svg";
 import { signInWithGitHub } from "@services/auth";
 
 export default function NoSession() {
@@ -17,7 +17,7 @@ export default function NoSession() {
         className="rounded-full mt-10 bg-gray-800 px-4 py-2 flex items-center gap-5 text-white text-sm border"
       >
         Iniciar sesión{" "}
-        <img className="h-8 w-8 rounded-full" src={github} alt="" />
+        <img className="h-6 w-6 rounded-full" src={github} alt="" />
       </button>
     </div>
   );

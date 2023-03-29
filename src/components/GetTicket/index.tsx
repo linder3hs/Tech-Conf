@@ -1,6 +1,7 @@
-import { signInWithGitHub, getUser } from "@services/auth";
-import { insertDataIntoTable, getTicketRecord } from "@services/config";
-import type { User } from "@interfaces/user";
+import { signInWithGitHub } from "@services/auth";
+import { insertDataIntoTable } from "@services/config";
+import useUserSubscriber from "@hooks/useUserSubscriber";
+import useUser from "@hooks/useUser";
 import Swal from "sweetalert2";
 
 interface Props {
@@ -10,22 +11,18 @@ interface Props {
 export default function GetTicket(props: Props) {
   const { id } = props;
 
-  const handleIsSubscribed = async (user: User) => {
-    const { length } = await getTicketRecord(String(id), user.id);
+  const { handleIsSubscribed } = useUserSubscriber();
 
-    return length > 0;
-  };
+  const { user } = useUser();
 
   const handleSubscribe = async () => {
-    const user = (await getUser()) as User | null;
-
     if (!user) {
       const url = `${window.location.origin}/events/1`;
       signInWithGitHub(url);
       return;
     }
 
-    const isSubscribed = await handleIsSubscribed(user);
+    const isSubscribed = await handleIsSubscribed(String(id), user.id);
 
     if (isSubscribed) {
       Swal.fire({
