@@ -9,7 +9,8 @@ export default function PrimaryButton(props: Props) {
   return (
     <a
       href={url}
-      className="text-lg text-center bg-yellow-300 border-solid border-black border-2 p-3 px-10 font-bold rounded-full block mt-20"
+      target="_blank"
+      className="bg-yellow-500 p-3 font-medium text-black border-black border-2 rounded-md hover:scale-125 hover:duration-300"
     >
       {text}
     </a>

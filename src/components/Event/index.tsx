@@ -1,5 +1,10 @@
 import { useEffect } from "react";
-import { Ticket, TimerCountdown, ScheduleItem } from "@componentsReact";
+import {
+  Ticket,
+  TimerCountdown,
+  ScheduleItem,
+  PrimaryButton,
+} from "@componentsReact";
 import useUserSubscriber from "@hooks/useUserSubscriber";
 import { getUser } from "@services/auth";
 import { insertDataIntoTable } from "@services/config";
@@ -133,7 +138,7 @@ export default function Event(props: Props) {
               <a href={sponsor.link} target="_blank">
                 <div
                   key={sponsor.id}
-                  className="text-center border border-gray-500 rounded-lg w-3/5 m-auto h-48 flex items-center"
+                  className="text-center border border-gray-500 hover:border-yellow-500 rounded-lg w-3/5 m-auto h-48 flex items-center"
                 >
                   <img
                     src={sponsor.src}
@@ -145,11 +150,17 @@ export default function Event(props: Props) {
               </a>
             ))}
           </section>
+          <div className="mt-20">
+            <PrimaryButton
+              text="Sé un sponsor"
+              url="https://api.whatsapp.com/send?phone=51967617166&text=Hola%2C%20quiero%20ser%20un%20sponsor!!"
+            />
+          </div>
         </section>
       </main>
       <footer className="m-20">
         <p className="text-center text-gray-500 text-sm">
-          Made by
+          Made by&nbsp;
           <a
             className="text-yellow-400"
             href="https://linderhassinger.info"

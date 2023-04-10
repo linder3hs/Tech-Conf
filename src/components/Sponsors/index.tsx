@@ -23,7 +23,7 @@ export default function Sponsors() {
         </h2>
       </div>
 
-      <div className="grid lg:grid-cols-4 sm:grid-cols-1 mt-28 items-center gap-24">
+      <div className="grid lg:grid-cols-4 sm:grid-cols-1 mt-28 items-center gap-24 mb-20">
         {sponsors.map((sponsor: ISponsor) => (
           <div key={sponsor.id}>
             <img width={300} src={sponsor.src} alt={sponsor.alt} />

@@ -6,7 +6,7 @@ export const navigation = [
   },
   {
     name: "Eventos",
-    href: "/events",
+    href: "/events/1",
     current: false,
   },
   {
