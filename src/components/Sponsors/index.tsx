@@ -32,7 +32,7 @@ export default function Sponsors() {
       </div>
       <PrimaryButton
         text="Sé un sponsor"
-        url="https://linderhassinger00.typeform.com/to/F64EamRc"
+        url="https://api.whatsapp.com/send?phone=51967617166&text=Hola%2C%20quiero%20ser%20un%20sponsor!!"
       />
     </div>
   );

@@ -22,6 +22,7 @@ const [event] = await getDataFromTable("events", {
 });
 
 const speakers = await getDataFromTable("speakers");
+const sponsors = await getDataFromTable("sponsors");
 ---
 
 <EventFrame title={`${event.title} | Tech Conf`}>
@@ -30,5 +31,6 @@ const speakers = await getDataFromTable("speakers");
     event={event as IEvent}
     speakers={speakers as ISpeaker[]}
     schedule={schedule}
+    sponsors={sponsors}
   />
 </EventFrame>

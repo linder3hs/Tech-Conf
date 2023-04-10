@@ -5,6 +5,7 @@ import { getUser } from "@services/auth";
 import { insertDataIntoTable } from "@services/config";
 import type { IEvent } from "@interfaces/tickets";
 import type { ISpeaker } from "@interfaces/speaker";
+import type { ISponsor } from "@interfaces/sponsor";
 
 interface IScduele {
   title: string;
@@ -16,10 +17,11 @@ interface Props {
   event: IEvent;
   schedule: IScduele[];
   speakers: ISpeaker[];
+  sponsors: ISponsor[];
 }
 
 export default function Event(props: Props) {
-  const { event, schedule, speakers } = props;
+  const { event, schedule, speakers, sponsors } = props;
 
   const { handleIsSubscribed } = useUserSubscriber();
 
@@ -69,7 +71,7 @@ export default function Event(props: Props) {
             </p>
             <article className="mt-10 bg-purple-700 w-full lg:w-1/3 m-auto p-1 rounded-xl">
               <h4 className="font-semibold text-lg">
-                Streaming en
+                Streaming en&nbsp;
                 <a
                   className="text-yellow-400"
                   target="_blank"
@@ -108,7 +110,7 @@ export default function Event(props: Props) {
                     <img
                       src={speaker.image}
                       width="200"
-                      className="rounded-full m-auto mb-10"
+                      className="rounded-full m-auto mb-10 "
                       alt={speaker.name}
                     />
                     <h2 className="text-3xl hover:text-yellow-400">
@@ -121,6 +123,26 @@ export default function Event(props: Props) {
                   </div>
                 )}
               </>
+            ))}
+          </section>
+          <div id="sponsors">
+            <h2 className="mt-10 text-4xl">Sponsors</h2>
+          </div>
+          <section className="grid grid-cols-2 gap-20 mt-20">
+            {sponsors.map((sponsor: ISponsor) => (
+              <a href={sponsor.link} target="_blank">
+                <div
+                  key={sponsor.id}
+                  className="text-center border border-gray-500 rounded-lg w-3/5 m-auto h-48 flex items-center"
+                >
+                  <img
+                    src={sponsor.src}
+                    width="200"
+                    className="m-auto image-white transition-all hover:scale-125"
+                    alt={sponsor.alt}
+                  />
+                </div>
+              </a>
             ))}
           </section>
         </section>

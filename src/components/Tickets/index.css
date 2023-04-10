@@ -26,6 +26,10 @@
   transform: rotate(-10deg);
 }
 
+.image-white {
+  filter: brightness(10000%);
+}
+
 /* media query mobile */
 @media screen and (max-width: 480px) {
   .bg-ticket {
