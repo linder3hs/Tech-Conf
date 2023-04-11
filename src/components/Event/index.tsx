@@ -133,13 +133,10 @@ export default function Event(props: Props) {
           <div id="sponsors">
             <h2 className="mt-10 text-4xl">Sponsors</h2>
           </div>
-          <section className="grid grid-cols-2 gap-20 mt-20">
+          <section className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 mt-20">
             {sponsors.map((sponsor: ISponsor) => (
-              <a href={sponsor.link} target="_blank">
-                <div
-                  key={sponsor.id}
-                  className="text-center border border-gray-500 hover:border-yellow-500 rounded-lg w-3/5 m-auto h-48 flex items-center"
-                >
+              <a key={sponsor.id} href={sponsor.link} target="_blank">
+                <div className="text-center border border-gray-500 hover:border-yellow-500 rounded-lg w-3/5 m-auto h-48 flex items-center">
                   <img
                     src={sponsor.src}
                     width="200"
