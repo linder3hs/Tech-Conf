@@ -1,26 +1,14 @@
 import { useEffect } from "react";
-import {
-  Ticket,
-  TimerCountdown,
-  ScheduleItem,
-  PrimaryButton,
-} from "@componentsReact";
+import { Ticket, TimerCountdown } from "@componentsReact";
 import useUserSubscriber from "@hooks/useUserSubscriber";
 import { getUser } from "@services/auth";
 import { insertDataIntoTable } from "@services/config";
-import type { IEvent } from "@interfaces/tickets";
-import type { ISpeaker } from "@interfaces/speaker";
-import type { ISponsor } from "@interfaces/sponsor";
-
-interface IScduele {
-  title: string;
-  time: string;
-  speaker: string;
-}
+import type { IEvent, ISpeaker, ISponsor, ISchedule } from "../../interfaces";
+import { Speakers, Schedule, Sponsors } from "./components";
 
 interface Props {
   event: IEvent;
-  schedule: IScduele[];
+  schedule: ISchedule[];
   speakers: ISpeaker[];
   sponsors: ISponsor[];
 }
@@ -91,68 +79,9 @@ export default function Event(props: Props) {
               <Ticket id={event.id} />
             </section>
           </section>
-          <section id="schedule">
-            <h2 className="mt-10 text-4xl">Calendario</h2>
-            <section className="mt-10">
-              {schedule.map(({ title, time, speaker }) => (
-                <ScheduleItem
-                  key={speaker}
-                  time={time}
-                  title={title}
-                  speaker={speaker}
-                />
-              ))}
-            </section>
-          </section>
-          <div id="speakers">
-            <h2 className="mt-10 text-4xl">Speakers</h2>
-          </div>
-          <section className="grid grid-cols-1 lg:grid-cols-2">
-            {speakers.map((speaker: ISpeaker) => (
-              <>
-                {speaker.id !== 4 && (
-                  <div key={speaker.id} className="mt-10 text-center">
-                    <img
-                      src={speaker.image}
-                      width="200"
-                      className="rounded-full m-auto mb-10 "
-                      alt={speaker.name}
-                    />
-                    <h2 className="text-3xl hover:text-yellow-400">
-                      <a
-                        href={`/speakers/${speaker.name.replaceAll(" ", "-")}`}
-                      >
-                        {speaker.name}
-                      </a>
-                    </h2>
-                  </div>
-                )}
-              </>
-            ))}
-          </section>
-          <div id="sponsors">
-            <h2 className="mt-10 text-4xl">Sponsors</h2>
-          </div>
-          <section className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 mt-20">
-            {sponsors.map((sponsor: ISponsor) => (
-              <a key={sponsor.id} href={sponsor.link} target="_blank">
-                <div className="text-center border border-gray-500 hover:border-yellow-500 rounded-lg w-3/5 m-auto h-48 flex items-center">
-                  <img
-                    src={sponsor.src}
-                    width="200"
-                    className="m-auto image-white transition-all hover:scale-125"
-                    alt={sponsor.alt}
-                  />
-                </div>
-              </a>
-            ))}
-          </section>
-          <div className="mt-20">
-            <PrimaryButton
-              text="Sé un sponsor"
-              url="https://api.whatsapp.com/send?phone=51967617166&text=Hola%2C%20quiero%20ser%20un%20sponsor!!"
-            />
-          </div>
+          <Schedule schedule={schedule} />
+          <Speakers speakers={speakers} />
+          <Sponsors sponsors={sponsors} />
         </section>
       </main>
       <footer className="m-20">
