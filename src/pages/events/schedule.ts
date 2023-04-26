@@ -35,7 +35,7 @@ export const schedule = [
     speaker: "Victor Saico",
   },
   {
-    title: "Aplicando JetPack Compose en Android - Es el futuro?",
+    title: "Desarrolladores en tiempos de constante cambio",
     time: "16:50",
     speaker: "Armando Picón",
   },
