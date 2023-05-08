@@ -4,7 +4,7 @@ import { getDataFromTable } from "@services/config";
 import type { IEvent } from "@interfaces/tickets";
 import type { ISpeaker } from "@interfaces/speaker";
 import { Event } from "@componentsReact";
-import { schedule } from "./schedule";
+import { schedule } from "../../services/schedule";
 
 export async function getStaticPaths() {
   const events = await getDataFromTable("events");
