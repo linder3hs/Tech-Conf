@@ -20,9 +20,9 @@ export const schedule = [
     speaker: "Jaime Gomez",
   },
   {
-    title: "Emprendimiento en el mundo Tech - Startups",
+    title: "Tema sorpresa",
     time: "14:10 - 14:40",
-    speaker: "Bruno Diaz",
+    speaker: "Invitado sorpresa",
   },
   {
     title: "Marco de trabajado aplicado al código fuente (Git-Flow)",
@@ -36,7 +36,7 @@ export const schedule = [
     speaker: "Guillermo Narvaez",
   },
   {
-    title: "La eduación a través de los bootcamp - CodiGO",
+    title: "La educación a través de los bootcamp - CodiGO",
     time: "15:40 - 16:10",
     speaker: "Daniel de la Cruz",
   },

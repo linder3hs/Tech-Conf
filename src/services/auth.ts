@@ -1,9 +1,10 @@
+import type { Provider } from "@supabase/supabase-js";
 import supabase from "./config";
 import * as Sentry from "@sentry/browser";
 
-export async function signInWithGitHub() {
+export async function signInWithGitHub(provider: Provider = "github") {
   const { data, error } = await supabase.auth.signInWithOAuth({
-    provider: "github",
+    provider,
   });
 
   if (error) {
