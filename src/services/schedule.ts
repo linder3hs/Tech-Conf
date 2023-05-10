@@ -25,7 +25,7 @@ export const schedule = [
     speaker: "Invitado sorpresa",
   },
   {
-    title: "Marco de trabajado aplicado al código fuente (Git-Flow)",
+    title: "Marco de trabajo aplicado al código fuente (Git-Flow)",
     time: "14:40 - 15:10",
     speaker: "Victor Saico",
   },
