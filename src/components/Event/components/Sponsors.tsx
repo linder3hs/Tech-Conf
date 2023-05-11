@@ -14,7 +14,7 @@ export default function Sponsors({ sponsors }: { sponsors: ISponsor[] }) {
               <img
                 src={sponsor.src}
                 width="200"
-                className="m-auto image-white transition-all hover:scale-125"
+                className="m-auto transition-all hover:scale-125"
                 alt={sponsor.alt}
               />
             </div>
