@@ -27,12 +27,16 @@ export default function Countdown() {
       const targetDate = new Date(2023, 4, 12, 11, 30, 0); // Asegúrate de que el mes esté indexado en 0 (0-11)
       let distance = targetDate.getTime() - today.getTime();
 
-      setTimeRemaining({
-        days: Math.floor(distance / day),
-        hours: Math.floor((distance % day) / hour),
-        minutes: Math.floor((distance % hour) / minute),
-        seconds: Math.floor((distance % minute) / second),
-      });
+      if (distance <= 0) {
+        clearInterval(intervalId);
+      } else {
+        setTimeRemaining({
+          days: Math.floor(distance / day),
+          hours: Math.floor((distance % day) / hour),
+          minutes: Math.floor((distance % hour) / minute),
+          seconds: Math.floor((distance % minute) / second),
+        });
+      }
     }, 1000);
 
     return () => clearInterval(intervalId);
