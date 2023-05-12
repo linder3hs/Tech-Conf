@@ -23,20 +23,9 @@ export default function Countdown() {
       const day = hour * 24;
 
       const today = new Date();
-      const dd = String(today.getDate()).padStart(2, "0");
-      const mm = String(today.getMonth() + 1).padStart(2, "0");
-      const year = today.getFullYear();
 
-      const dayMonth = "05/12/";
-      let birthday = dayMonth + year;
-
-      const todayStr = `${mm}/${dd}/${year}`;
-
-      if (todayStr > birthday) birthday = dayMonth + (year + 1);
-
-      const countDown = new Date(birthday).getTime();
-      const now = new Date().getTime();
-      const distance = countDown - now;
+      const targetDate = new Date(2023, 4, 12, 11, 30, 0); // Asegúrate de que el mes esté indexado en 0 (0-11)
+      let distance = targetDate.getTime() - today.getTime();
 
       setTimeRemaining({
         days: Math.floor(distance / day),
