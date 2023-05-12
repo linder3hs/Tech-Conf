@@ -20,9 +20,9 @@ export const schedule = [
     speaker: "Jaime Gomez",
   },
   {
-    title: "Tema sorpresa",
+    title: "Features de Node JS 20...",
     time: "14:10 - 14:40",
-    speaker: "Invitado sorpresa",
+    speaker: "Linder Hassinger",
   },
   {
     title: "Marco de trabajo aplicado al código fuente (Git-Flow)",
