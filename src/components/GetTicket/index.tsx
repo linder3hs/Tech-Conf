@@ -1,6 +1,6 @@
 import { Fragment, useRef, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import { signInWithGitHub } from "@services/auth";
+import { signInWithSocialMedia } from "@services/auth";
 import { insertDataIntoTable } from "@services/config";
 import useUserSubscriber from "@hooks/useUserSubscriber";
 import useUser from "@hooks/useUser";
@@ -24,7 +24,7 @@ export default function GetTicket(props: Props) {
 
   const handleSubscribe = async (provider: Provider = "github") => {
     if (!user) {
-      await signInWithGitHub(provider);
+      await signInWithSocialMedia(provider);
       return;
     }
 

@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { signInWithGitHub, getUser } from "../../services/auth";
+import { signInWithSocialMedia, getUser } from "../../services/auth";
 import github from "../../assets/github-white.svg";
 import type { User } from "../../interfaces/user";
 
 export default function GithubAuth() {
-  const fetchLogin = async () => await signInWithGitHub();
+  const fetchLogin = async () => await signInWithSocialMedia();
 
   const [user, setUser] = useState<User | null>(null);
 

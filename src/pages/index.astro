@@ -1,44 +1,50 @@
 ---
-import EventFrame from "@layouts/EventFrame.astro";
-import { getDataFromTable } from "@services/config";
-import type { IEvent } from "@interfaces/tickets";
+import Layout from "@layouts/Layout.astro";
+import { Sponsors } from "@componentsReact";
+import Home from "@components/Home/Home.astro";
+import About from "@components/About/index.astro";
+import How from "@components/How/index.astro";
+import Speaker from "@components/Speaker/index.astro";
 import type { ISpeaker } from "@interfaces/speaker";
-import { Event } from "@componentsReact";
-import { schedule } from "../services/schedule";
-
-export async function getStaticPaths() {
-  const events = await getDataFromTable("events");
-
-  return events.map((event: IEvent) => ({
-    params: { id: event.id },
-  }));
-}
-
-const { id = 1 } = Astro.params;
-
-const [event] = await getDataFromTable("events", {
-  key: "id",
-  value: Number(id),
-});
+import { getDataFromTable } from "@services/config";
 
 const speakers = await getDataFromTable("speakers");
-const sponsors = await getDataFromTable("sponsors");
 ---
 
-<EventFrame title={`${event.title} | Tech Conf`}>
-  <Event
-    client:load
-    event={event as IEvent}
-    speakers={speakers as ISpeaker[]}
-    schedule={schedule}
-    sponsors={sponsors}
-  />
-  <div class="fixed bottom-0 bg-yellow-500 w-full p-3 text-center text-black">
-    <h3>
-      ¡Si ya te inscribiste, ahora registra tus datos <a
-        href="https://forms.gle/yHMoux1tzKpbZ6qc8"
-        class="underline"
-        target="_blank">aquí!</a>
-    </h3>
+<Layout title="Tech Conf">
+  <div class="bg-rose-500 mt-20">
+    <Home />
   </div>
-</EventFrame>
+  <div class="m-5 md:mx-20 md:my-0">
+    <div id="about">
+      <About />
+    </div>
+    <div id="speakers">
+      <h1 class="sm:mt-16 md:text-7xl lg:text-6xl font-extrabold text-center">
+        Speakers 🎙️
+      </h1>
+      <div
+        class="mt-10 grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-10 items-center"
+      >
+        {
+          speakers?.length > 0 &&
+            speakers.map((speaker: ISpeaker) => (
+              <Speaker
+                image={speaker.image}
+                name={speaker.name}
+                github={speaker.github ?? "no-user"}
+                twitter={speaker.twitter ?? "no-user"}
+                youtube={speaker.youtube ?? "no-user"}
+              />
+            ))
+        }
+      </div>
+    </div>
+    <div>
+      <How />
+    </div>
+    <div id="sponsors" class="bg-gray-100">
+      <Sponsors client:visible />
+    </div>
+  </div>
+</Layout>

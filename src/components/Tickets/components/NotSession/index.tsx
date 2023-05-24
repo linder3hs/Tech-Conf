@@ -1,8 +1,8 @@
 import github from "@assets/github-white.svg";
-import { signInWithGitHub } from "@services/auth";
+import { signInWithSocialMedia } from "@services/auth";
 
 export default function NoSession() {
-  const fetchLogin = async () => await signInWithGitHub();
+  const fetchLogin = async () => await signInWithSocialMedia();
 
   return (
     <div className="h-screen">
